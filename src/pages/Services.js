@@ -1,7 +1,6 @@
 // src/pages/Services.js
 import React, { useEffect, useRef, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import AdvertisingLine from '../components/AdvertisingLine';
 
 const Services = () => {
   const location = useLocation();

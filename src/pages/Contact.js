@@ -1,7 +1,5 @@
 // src/pages/Contact.js
 import React, { useState } from 'react';
-import AdvertisingLine from '../components/AdvertisingLine';
-import Call from '../components/Call';
 import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaPaperPlane, FaClock } from 'react-icons/fa';
 
 const Contact = () => {
@@ -298,7 +296,6 @@ const Contact = () => {
                     <option value="cloud-services">Cloud Services</option>
                     <option value="it-support">IT Support</option>
                     <option value="internet-cafe">Internet Café Services</option>
-                    <option value="training">Training</option>
                     <option value="consultation">Free Consultation</option>
                   </select>
                 </div>
@@ -345,7 +342,7 @@ const Contact = () => {
                 <FaMapMarkerAlt style={styles.infoIcon} />
                 <div style={styles.infoContent}>
                   <div style={styles.infoTitle}>Our Location</div>
-                  <div style={styles.infoText}>Remote-first operations<br />Physical hub opening soon!</div>
+                  <div style={styles.infoText}>Remote-first operations</div>
                 </div>
               </div>
 
