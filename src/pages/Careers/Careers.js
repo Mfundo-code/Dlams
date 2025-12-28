@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import CareersHero from "./BlogComponents/CareersHero";
-import CallToActionSection from "./BlogComponents/CallToActionSection";
+
 
 const Careers = () => {
   const [jobPostings, setJobPostings] = useState([]);

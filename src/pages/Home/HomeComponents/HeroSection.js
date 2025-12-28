@@ -1,4 +1,3 @@
-// HeroSection.js with VERY VISIBLE animations
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 
@@ -6,8 +5,8 @@ export default function HeroSection({
   imageUrl = "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=800&fit=crop",
   title = "Dlams Software Solutions",
   subtitle = "Digital Presence | Logo Design | Websites | Mobile Apps | E-commerce | Custom Enterprise Software",
-  primaryLabel = "Get Your Free Quote",
-  onPrimary = () => window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" }),
+  primaryLabel = "Get In Touch Now",
+  onPrimary = () => window.location.href = "/contact", // CHANGED: Now redirects to contact page
 }) {
   const [primaryHover, setPrimaryHover] = useState(false);
   const [imageLoaded, setImageLoaded] = useState(false);
@@ -177,47 +176,12 @@ export default function HeroSection({
       </div>
 
       <div style={styles.contentWrap}>
-        {/* LEFT image */}
+        {/* LEFT content (text) */}
         <motion.div 
           style={styles.left}
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
-        >
-          <motion.div
-            style={styles.imageWrapper}
-            whileHover={{
-              scale: 1.08,
-              rotateY: 5,
-              transition: { duration: 0.4 }
-            }}
-          >
-            <img 
-              src={imageUrl} 
-              alt="Dlams Software Solutions" 
-              style={styles.image}
-              onLoad={() => setImageLoaded(true)}
-            />
-            <motion.div 
-              style={styles.imageGlow}
-              animate={{
-                opacity: [0, 0.4, 0]
-              }}
-              transition={{
-                duration: 3,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-            />
-          </motion.div>
-        </motion.div>
-
-        {/* RIGHT content */}
-        <motion.div 
-          style={styles.right}
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
         >
           <motion.h1 
             id="hero-heading" 
@@ -277,7 +241,27 @@ export default function HeroSection({
                 repeat: Infinity
               }}
             >
-              {primaryLabel}
+              {/* ADDED: Arrow icon with animation like AboutCompany */}
+              <span style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                {primaryLabel}
+                <motion.svg 
+                  width="18" 
+                  height="18" 
+                  viewBox="0 0 24 24" 
+                  fill="none"
+                  initial={{ x: 0 }}
+                  whileHover={{ x: 3 }}
+                  transition={{ type: "spring", stiffness: 400 }}
+                >
+                  <path 
+                    d="M5 12h14m-7-7l7 7-7 7" 
+                    stroke="currentColor" 
+                    strokeWidth="2" 
+                    strokeLinecap="round" 
+                    strokeLinejoin="round"
+                  />
+                </motion.svg>
+              </span>
             </motion.button>
           </motion.div>
 
@@ -293,6 +277,41 @@ export default function HeroSection({
             }}
           >
             Transform your business with our digital solutions
+          </motion.div>
+        </motion.div>
+
+        {/* RIGHT image */}
+        <motion.div 
+          style={styles.right}
+          initial={{ opacity: 0, x: 50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          <motion.div
+            style={styles.imageWrapper}
+            whileHover={{
+              scale: 1.08,
+              rotateY: 5,
+              transition: { duration: 0.4 }
+            }}
+          >
+            <img 
+              src={imageUrl} 
+              alt="Dlams Software Solutions" 
+              style={styles.image}
+              onLoad={() => setImageLoaded(true)}
+            />
+            <motion.div 
+              style={styles.imageGlow}
+              animate={{
+                opacity: [0, 0.4, 0]
+              }}
+              transition={{
+                duration: 3,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+            />
           </motion.div>
         </motion.div>
       </div>
@@ -384,9 +403,20 @@ const styles = {
   },
 
   left: {
+    flex: "1 1 500px",
+    minWidth: 300,
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center", // Changed back to center
+    textAlign: "center", // Changed back to center
+    justifyContent: "center",
+  },
+
+  right: {
     flex: "0 1 380px",
     display: "flex",
     justifyContent: "center",
+    alignItems: "center", // Ensure image is centered vertically too
     minWidth: 280,
   },
 
@@ -420,16 +450,6 @@ const styles = {
     mixBlendMode: "multiply",
   },
 
-  right: {
-    flex: "1 1 500px",
-    minWidth: 300,
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    textAlign: "center",
-    justifyContent: "center",
-  },
-
   title: {
     fontSize: "clamp(2.5rem, 5vw, 3.8rem)",
     lineHeight: 1.1,
@@ -458,7 +478,7 @@ const styles = {
     gap: 16,
     alignItems: "center",
     flexWrap: "wrap",
-    justifyContent: "center",
+    justifyContent: "center", // Changed back to center
   },
 
   primaryBtn: (hover) => ({

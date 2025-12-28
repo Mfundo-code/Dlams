@@ -206,8 +206,18 @@ const Header = () => {
     { to: '/', label: 'Home', icon: <FaHome /> },
     { to: '/about', label: 'About Us', icon: <FaUser /> },
     { to: '/services', label: 'Services', icon: <FaServicestack /> },
-    { to: '/projects', label: 'Projects', icon: <FaProjectDiagram /> }, // Changed from '/products' to '/projects'
+    { to: '/projects', label: 'Projects', icon: <FaProjectDiagram /> },
     { to: '/careers', label: 'Careers', icon: <FaBriefcase /> },
+  ];
+
+  // Mobile drawer links - includes Contact Us as a navigation item
+  const mobileLinks = [
+    { to: '/', label: 'Home', icon: <FaHome /> },
+    { to: '/about', label: 'About Us', icon: <FaUser /> },
+    { to: '/services', label: 'Services', icon: <FaServicestack /> },
+    { to: '/projects', label: 'Projects', icon: <FaProjectDiagram /> },
+    { to: '/careers', label: 'Careers', icon: <FaBriefcase /> },
+    { to: '/contact', label: 'Contact Us', icon: <FaEnvelope /> }, // Only in mobile drawer
   ];
 
   // Add CSS animations
@@ -373,7 +383,7 @@ const Header = () => {
             </button>
 
             <div style={styles.mobileMenuItems}>
-              {links.map(link => {
+              {mobileLinks.map(link => {
                 const isActive = location.pathname === link.to;
                 return (
                   <Link
@@ -400,33 +410,6 @@ const Header = () => {
                   </Link>
                 );
               })}
-
-              <button
-                type="button"
-                style={{
-                  ...styles.mobileMenuItem(false),
-                  marginTop: '20px',
-                  background: 'rgba(255, 215, 0, 0.2)',
-                  border: `2px solid ${GOLD}`,
-                  justifyContent: 'center',
-                  fontWeight: 700,
-                }}
-                onClick={() => {
-                  scrollToFooter();
-                  toggleMobileMenu();
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.background = 'rgba(255, 215, 0, 0.3)';
-                  e.currentTarget.style.transform = 'scale(1.02)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.background = 'rgba(255, 215, 0, 0.2)';
-                  e.currentTarget.style.transform = 'scale(1)';
-                }}
-              >
-                <FaEnvelope style={styles.mobileIcon} />
-                Contact Us
-              </button>
             </div>
           </div>
         </div>

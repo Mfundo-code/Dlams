@@ -1,13 +1,25 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
   Code, Cloud, Smartphone, ShoppingCart, 
   Database, Shield, Zap, CheckCircle, X,
-  Users, BarChart, Globe, Cpu, Lock, Settings
+  Users, BarChart, Globe, Cpu, Lock, Settings,
+  Wifi, Palette, Rocket, TrendingUp
 } from "lucide-react";
 
-const ServiceSection = () => {
+const ServiceSection = ({ selectedServiceSlug, onServiceSelect }) => {
   const [selectedService, setSelectedService] = useState(null);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
+  // Handle window resize for responsive behavior
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   // Define all color constants at the top
   const PRIMARY_BLUE = '#1E3A8A';
@@ -17,151 +29,62 @@ const ServiceSection = () => {
   const LIGHT_BLUE = '#E6F7FF';
   const DARK_BLUE = '#1E3A8A';
 
+  // Define service data with slugs
   const services = [
     {
       id: 1,
-      title: "Custom Web Development",
-      icon: <Code />,
-      description: "Build responsive, high-performance web applications tailored to your business needs.",
-      fullDescription: "We create custom web applications that are scalable, secure, and user-friendly. From enterprise solutions to startup MVPs, we deliver robust applications using modern technologies.",
-      image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+      slug: "digital-presence-package",
+      title: "Digital Presence Package",
+      icon: <Globe />,
+      description: "Complete digital solution including website, SEO, and social media integration.",
+      fullDescription: "Our Digital Presence Package is a comprehensive solution designed to establish and enhance your brand's online visibility.",
+      image: "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
       features: [
-        "Single Page Applications (SPA)",
-        "Progressive Web Apps (PWA)",
-        "E-commerce Solutions",
-        "Content Management Systems",
-        "Real-time Applications",
-        "API Integration"
+        "Responsive Website Design",
+        "Search Engine Optimization (SEO)",
+        "Social Media Integration",
+        "Google Analytics Setup",
+        "Content Management System",
+        "Mobile Optimization"
       ],
       tools: [
+        { name: "WordPress", color: "#21759B" },
         { name: "React", color: "#61DAFB" },
-        { name: "Next.js", color: "#000000" },
-        { name: "Vue.js", color: "#4FC08D" },
-        { name: "TypeScript", color: "#3178C6" },
-        { name: "Node.js", color: "#339933" },
-        { name: "GraphQL", color: "#E10098" }
+        { name: "SEO Tools", color: "#4285F4" },
+        { name: "Google Analytics", color: "#FF6D01" },
+        { name: "Social APIs", color: "#1DA1F2" },
+        { name: "Cloudflare", color: "#F38020" }
       ],
       process: [
-        "Requirement Analysis",
-        "UI/UX Design",
-        "Development",
-        "Testing & QA",
-        "Deployment",
-        "Maintenance"
+        "Strategy & Planning",
+        "Design & Development",
+        "SEO Optimization",
+        "Social Media Setup",
+        "Testing & Launch",
+        "Ongoing Support"
       ],
       benefits: [
-        { icon: <Settings />, title: "100% Custom Solution", desc: "Tailored to your specific needs" },
-        { icon: <Globe />, title: "SEO Optimized", desc: "Rank higher in search results" },
-        { icon: <Smartphone />, title: "Mobile Responsive", desc: "Works perfectly on all devices" },
-        { icon: <Zap />, title: "Fast Loading", desc: "Optimized for maximum speed" },
-        { icon: <Cpu />, title: "Scalable Architecture", desc: "Grows with your business" },
-        { icon: <Lock />, title: "Security Built-in", desc: "Enterprise-grade protection" }
+        { icon: <Globe />, title: "360° Online Presence", desc: "Complete digital ecosystem" },
+        { icon: <TrendingUp />, title: "Increased Visibility", desc: "Rank higher in search results" },
+        { icon: <Users />, title: "Social Engagement", desc: "Connect with your audience" },
+        { icon: <BarChart />, title: "Analytics Insights", desc: "Data-driven decisions" },
+        { icon: <Rocket />, title: "Quick Launch", desc: "Fast deployment time" },
+        { icon: <Settings />, title: "Easy Management", desc: "Simple content updates" }
       ],
       stats: [
-        { value: "30%", label: "Faster Time-to-Market" },
-        { value: "99.9%", label: "Uptime Guarantee" },
-        { value: "50+", label: "Projects Delivered" },
+        { value: "40%", label: "Traffic Increase" },
+        { value: "70%", label: "Faster Launch" },
+        { value: "3x", label: "Social Engagement" },
         { value: "24/7", label: "Support Available" }
       ]
     },
     {
       id: 2,
-      title: "Mobile App Development",
-      icon: <Smartphone />,
-      description: "Native and cross-platform mobile applications for iOS and Android platforms.",
-      fullDescription: "Create engaging mobile experiences with our expert development team. We build both native and cross-platform applications that provide optimal performance and user experience.",
-      image: "https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-      features: [
-        "iOS Native Apps",
-        "Android Native Apps",
-        "Cross-platform Solutions",
-        "Push Notifications",
-        "Offline Capabilities",
-        "App Store Optimization"
-      ],
-      tools: [
-        { name: "React Native", color: "#61DAFB" },
-        { name: "Flutter", color: "#02569B" },
-        { name: "Swift", color: "#FA7343" },
-        { name: "Kotlin", color: "#7F52FF" },
-        { name: "Firebase", color: "#FFCA28" },
-        { name: "Expo", color: "#000020" }
-      ],
-      process: [
-        "App Strategy",
-        "Wireframing",
-        "UI/UX Design",
-        "Development",
-        "Testing",
-        "Store Deployment"
-      ],
-      benefits: [
-        { icon: <Cpu />, title: "Native Performance", desc: "Smooth and responsive experience" },
-        { icon: <BarChart />, title: "Cost-effective", desc: "Save up to 40% on development" },
-        { icon: <Zap />, title: "Faster Development", desc: "60% faster delivery time" },
-        { icon: <Settings />, title: "Easy Maintenance", desc: "Single codebase management" },
-        { icon: <Code />, title: "Code Reusability", desc: "Share code across platforms" },
-        { icon: <Cloud />, title: "Regular Updates", desc: "Continuous improvement" }
-      ],
-      stats: [
-        { value: "40%", label: "Cost Reduction" },
-        { value: "2M+", label: "App Downloads" },
-        { value: "4.8★", label: "Average Rating" },
-        { value: "99%", label: "Client Satisfaction" }
-      ]
-    },
-    {
-      id: 3,
-      title: "Cloud Solutions & DevOps",
-      icon: <Cloud />,
-      description: "Scalable cloud infrastructure and automated deployment pipelines for your applications.",
-      fullDescription: "Implement robust cloud solutions with automated CI/CD pipelines, containerization, and infrastructure as code. We ensure your applications are scalable, secure, and highly available.",
-      image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-      features: [
-        "Cloud Migration",
-        "Container Orchestration",
-        "CI/CD Pipelines",
-        "Infrastructure as Code",
-        "Monitoring & Logging",
-        "Disaster Recovery"
-      ],
-      tools: [
-        { name: "AWS", color: "#FF9900" },
-        { name: "Azure", color: "#0078D4" },
-        { name: "Docker", color: "#2496ED" },
-        { name: "Kubernetes", color: "#326CE5" },
-        { name: "Terraform", color: "#7B42BC" },
-        { name: "GitHub Actions", color: "#2088FF" }
-      ],
-      process: [
-        "Assessment",
-        "Architecture Design",
-        "Implementation",
-        "Security Setup",
-        "Deployment",
-        "Monitoring"
-      ],
-      benefits: [
-        { icon: <Settings />, title: "Auto-scaling", desc: "Automatically scale based on demand" },
-        { icon: <Zap />, title: "High Availability", desc: "99.99% uptime guarantee" },
-        { icon: <BarChart />, title: "Cost Optimization", desc: "Reduce cloud costs by 30%" },
-        { icon: <Lock />, title: "Security Compliance", desc: "Meet industry standards" },
-        { icon: <Cloud />, title: "Automated Backups", desc: "Zero data loss guarantee" },
-        { icon: <Cpu />, title: "24/7 Monitoring", desc: "Real-time performance tracking" }
-      ],
-      stats: [
-        { value: "99.99%", label: "Uptime" },
-        { value: "60%", label: "Faster Deployment" },
-        { value: "30%", label: "Cost Savings" },
-        { value: "100%", label: "Security Compliance" }
-      ]
-    },
-    {
-      id: 4,
+      slug: "e-commerce-solutions",
       title: "E-commerce Solutions",
       icon: <ShoppingCart />,
       description: "Complete online store solutions with payment integration and inventory management.",
-      fullDescription: "Launch your online store with our comprehensive e-commerce solutions. We handle everything from store setup to payment integration and marketing automation.",
+      fullDescription: "Launch your online store with our comprehensive e-commerce solutions.",
       image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
       features: [
         "Store Setup & Design",
@@ -203,103 +126,236 @@ const ServiceSection = () => {
       ]
     },
     {
-      id: 5,
-      title: "Database Solutions",
-      icon: <Database />,
-      description: "Robust database design, optimization, and management for your applications.",
-      fullDescription: "Design and implement scalable database architectures that ensure data integrity, performance, and security for your applications.",
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+      id: 3,
+      slug: "mobile-app-development",
+      title: "Mobile App Development",
+      icon: <Smartphone />,
+      description: "Native and cross-platform mobile applications for iOS and Android platforms.",
+      fullDescription: "Create engaging mobile experiences with our expert development team.",
+      image: "https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
       features: [
-        "Database Design",
-        "Performance Optimization",
-        "Data Migration",
-        "Backup & Recovery",
-        "Security Implementation",
-        "Replication Setup"
+        "iOS Native Apps",
+        "Android Native Apps",
+        "Cross-platform Solutions",
+        "Push Notifications",
+        "Offline Capabilities",
+        "App Store Optimization"
       ],
       tools: [
-        { name: "PostgreSQL", color: "#336791" },
-        { name: "MongoDB", color: "#47A248" },
-        { name: "MySQL", color: "#4479A1" },
-        { name: "Redis", color: "#DC382D" },
-        { name: "Elasticsearch", color: "#005571" },
-        { name: "Firestore", color: "#FFCA28" }
+        { name: "React Native", color: "#61DAFB" },
+        { name: "Flutter", color: "#02569B" },
+        { name: "Swift", color: "#FA7343" },
+        { name: "Kotlin", color: "#7F52FF" },
+        { name: "Firebase", color: "#FFCA28" },
+        { name: "Expo", color: "#000020" }
+      ],
+      process: [
+        "App Strategy",
+        "Wireframing",
+        "UI/UX Design",
+        "Development",
+        "Testing",
+        "Store Deployment"
+      ],
+      benefits: [
+        { icon: <Cpu />, title: "Native Performance", desc: "Smooth and responsive experience" },
+        { icon: <BarChart />, title: "Cost-effective", desc: "Save up to 40% on development" },
+        { icon: <Zap />, title: "Faster Development", desc: "60% faster delivery time" },
+        { icon: <Settings />, title: "Easy Maintenance", desc: "Single codebase management" },
+        { icon: <Code />, title: "Code Reusability", desc: "Share code across platforms" },
+        { icon: <Cloud />, title: "Regular Updates", desc: "Continuous improvement" }
+      ],
+      stats: [
+        { value: "40%", label: "Cost Reduction" },
+        { value: "2M+", label: "App Downloads" },
+        { value: "4.8★", label: "Average Rating" },
+        { value: "99%", label: "Client Satisfaction" }
+      ]
+    },
+    {
+      id: 4,
+      slug: "custom-software-development",
+      title: "Custom Software Development",
+      icon: <Code />,
+      description: "Tailored software solutions built specifically for your business requirements.",
+      fullDescription: "We develop custom software that addresses your unique business challenges.",
+      image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+      features: [
+        "Enterprise Applications",
+        "Business Process Automation",
+        "Custom CRM/ERP Systems",
+        "API Development",
+        "Legacy System Migration",
+        "Scalable Architecture"
+      ],
+      tools: [
+        { name: ".NET", color: "#512BD4" },
+        { name: "Java", color: "#007396" },
+        { name: "Python", color: "#3776AB" },
+        { name: "Node.js", color: "#339933" },
+        { name: "Docker", color: "#2496ED" },
+        { name: "AWS", color: "#FF9900" }
       ],
       process: [
         "Requirement Analysis",
-        "Schema Design",
-        "Implementation",
-        "Optimization",
-        "Security Setup",
-        "Monitoring"
+        "System Design",
+        "Development",
+        "Quality Assurance",
+        "Deployment",
+        "Maintenance"
       ],
       benefits: [
-        { icon: <Zap />, title: "High Performance", desc: "Millisecond response times" },
-        { icon: <Lock />, title: "Data Security", desc: "Enterprise-grade encryption" },
-        { icon: <Cpu />, title: "Scalability", desc: "Handle millions of records" },
-        { icon: <Settings />, title: "Real-time Updates", desc: "Instant data synchronization" },
-        { icon: <Cloud />, title: "Automatic Backups", desc: "Zero data loss guarantee" },
-        { icon: <Shield />, title: "Disaster Recovery", desc: "Quick recovery from failures" }
+        { icon: <Settings />, title: "Tailored Solution", desc: "Built specifically for your needs" },
+        { icon: <TrendingUp />, title: "Competitive Advantage", desc: "Unique features for your business" },
+        { icon: <Cpu />, title: "Scalable Architecture", desc: "Grows with your business" },
+        { icon: <Lock />, title: "Enhanced Security", desc: "Custom security protocols" },
+        { icon: <BarChart />, title: "Cost Efficiency", desc: "Reduce operational costs" },
+        { icon: <Rocket />, title: "Faster Processes", desc: "Automate manual tasks" }
       ],
       stats: [
-        { value: "10x", label: "Query Performance" },
-        { value: "100%", label: "Data Integrity" },
-        { value: "99.99%", label: "Availability" },
-        { value: "<100ms", label: "Response Time" }
+        { value: "50%", label: "Process Automation" },
+        { value: "60%", label: "Cost Reduction" },
+        { value: "99.9%", label: "Uptime" },
+        { value: "3x", label: "Productivity Increase" }
+      ]
+    },
+    {
+      id: 5,
+      slug: "custom-web-development",
+      title: "Web Development",
+      icon: <Code />,
+      description: "Build responsive, high-performance web applications tailored to your business needs.",
+      fullDescription: "We create custom web applications that are scalable, secure, and user-friendly.",
+      image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+      features: [
+        "Single Page Applications (SPA)",
+        "Progressive Web Apps (PWA)",
+        "E-commerce Solutions",
+        "Content Management Systems",
+        "Real-time Applications",
+        "API Integration"
+      ],
+      tools: [
+        { name: "React", color: "#61DAFB" },
+        { name: "Next.js", color: "#000000" },
+        { name: "Vue.js", color: "#4FC08D" },
+        { name: "TypeScript", color: "#3178C6" },
+        { name: "Node.js", color: "#339933" },
+        { name: "GraphQL", color: "#E10098" }
+      ],
+      process: [
+        "Requirement Analysis",
+        "UI/UX Design",
+        "Development",
+        "Testing & QA",
+        "Deployment",
+        "Maintenance"
+      ],
+      benefits: [
+        { icon: <Settings />, title: "100% Custom Solution", desc: "Tailored to your specific needs" },
+        { icon: <Globe />, title: "SEO Optimized", desc: "Rank higher in search results" },
+        { icon: <Smartphone />, title: "Mobile Responsive", desc: "Works perfectly on all devices" },
+        { icon: <Zap />, title: "Fast Loading", desc: "Optimized for maximum speed" },
+        { icon: <Cpu />, title: "Scalable Architecture", desc: "Grows with your business" },
+        { icon: <Lock />, title: "Security Built-in", desc: "Enterprise-grade protection" }
+      ],
+      stats: [
+        { value: "30%", label: "Faster Time-to-Market" },
+        { value: "99.9%", label: "Uptime Guarantee" },
+        { value: "50+", label: "Projects Delivered" },
+        { value: "24/7", label: "Support Available" }
       ]
     },
     {
       id: 6,
-      title: "Security & Compliance",
-      icon: <Shield />,
-      description: "Comprehensive security solutions and compliance implementation for your applications.",
-      fullDescription: "Protect your applications with our security solutions including penetration testing, vulnerability assessment, and compliance implementation.",
-      image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+      slug: "business-automation",
+      title: "Business Automation",
+      icon: <Settings />,
+      description: "Streamline your business processes with intelligent automation solutions.",
+      fullDescription: "Transform your business operations with our automation solutions. We help you eliminate manual tasks, reduce errors, and increase efficiency through custom automation workflows.",
+      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
       features: [
-        "Penetration Testing",
-        "Vulnerability Assessment",
-        "SSL Implementation",
-        "GDPR Compliance",
-        "Security Audits",
-        "Firewall Setup"
+        "Workflow Automation",
+        "Process Optimization",
+        "Data Integration",
+        "Reporting Automation",
+        "Notification Systems",
+        "RPA Implementation"
       ],
       tools: [
-        { name: "OWASP", color: "#000000" },
-        { name: "Let's Encrypt", color: "#003A70" },
-        { name: "Cloudflare", color: "#F38020" },
-        { name: "Nessus", color: "#00AEEF" },
-        { name: "Burp Suite", color: "#FF6B35" },
-        { name: "Wireshark", color: "#1679B7" }
+        { name: "Zapier", color: "#FF4A00" },
+        { name: "Make", color: "#00C7B7" },
+        { name: "Power Automate", color: "#0078D4" },
+        { name: "Python", color: "#3776AB" },
+        { name: "APIs", color: "#FF6C37" },
+        { name: "Cloud Services", color: "#4285F4" }
       ],
       process: [
-        "Security Assessment",
-        "Risk Analysis",
-        "Implementation",
+        "Process Analysis",
+        "Automation Design",
+        "Development",
         "Testing",
-        "Compliance Check",
-        "Documentation"
+        "Deployment",
+        "Monitoring"
       ],
       benefits: [
-        { icon: <Lock />, title: "Data Protection", desc: "End-to-end encryption" },
-        { icon: <Settings />, title: "Regulatory Compliance", desc: "GDPR, HIPAA, PCI DSS" },
-        { icon: <Shield />, title: "Threat Prevention", desc: "Real-time threat detection" },
-        { icon: <BarChart />, title: "Regular Audits", desc: "Continuous security checks" },
-        { icon: <Users />, title: "Security Training", desc: "Team awareness programs" },
-        { icon: <Zap />, title: "Incident Response", desc: "24/7 emergency support" }
+        { icon: <Zap />, title: "Time Savings", desc: "Reduce manual work by 80%" },
+        { icon: <TrendingUp />, title: "Increased Accuracy", desc: "Eliminate human errors" },
+        { icon: <BarChart />, title: "Cost Reduction", desc: "Lower operational costs" },
+        { icon: <Settings />, title: "Scalability", desc: "Handle increased workload" },
+        { icon: <Cpu />, title: "24/7 Operation", desc: "Run processes continuously" },
+        { icon: <Rocket />, title: "Faster Results", desc: "Accelerate business outcomes" }
       ],
       stats: [
-        { value: "100%", label: "Compliance Rate" },
-        { value: "0", label: "Security Breaches" },
-        { value: "99.9%", label: "Threat Detection" },
-        { value: "24/7", label: "Monitoring" }
+        { value: "80%", label: "Time Saved" },
+        { value: "90%", label: "Error Reduction" },
+        { value: "50%", label: "Cost Savings" },
+        { value: "3x", label: "Productivity Boost" }
       ]
     }
   ];
 
+  // Handle URL-based service selection
+  useEffect(() => {
+    if (selectedServiceSlug) {
+      const service = services.find(s => s.slug === selectedServiceSlug);
+      if (service) {
+        setSelectedService(service);
+        // Scroll to the service section
+        setTimeout(() => {
+          const element = document.getElementById('services-section');
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+          }
+        }, 100);
+      }
+    }
+  }, [selectedServiceSlug]);
+
+  // Lock body scroll when modal is open
+  useEffect(() => {
+    if (selectedService) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [selectedService]);
+
+  const handleCardClick = (service) => {
+    if (onServiceSelect) {
+      onServiceSelect(service.slug);
+    } else {
+      setSelectedService(service);
+    }
+  };
+
   // Styles object defined after all variables
   const styles = {
     section: {
-      padding: '100px 20px',
+      padding: 'clamp(60px, 10vw, 100px) clamp(15px, 4vw, 20px)',
       background: `linear-gradient(135deg, 
         rgba(30, 58, 138, 0.05) 0%, 
         ${LIGHT_BLUE} 20%,
@@ -335,7 +391,7 @@ const ServiceSection = () => {
     },
     header: {
       textAlign: 'center',
-      marginBottom: '60px',
+      marginBottom: 'clamp(40px, 8vw, 60px)',
     },
     badge: {
       display: 'inline-flex',
@@ -343,11 +399,11 @@ const ServiceSection = () => {
       background: `linear-gradient(135deg, ${GOLD}20, ${ACCENT_BLUE}20)`,
       border: `1px solid ${GOLD}`,
       borderRadius: '50px',
-      padding: '10px 24px',
-      fontSize: '14px',
+      padding: 'clamp(8px, 2vw, 10px) clamp(16px, 4vw, 24px)',
+      fontSize: 'clamp(12px, 2.5vw, 14px)',
       fontWeight: 600,
       color: PRIMARY_BLUE,
-      marginBottom: '20px',
+      marginBottom: 'clamp(15px, 3vw, 20px)',
       backdropFilter: 'blur(10px)',
     },
     title: {
@@ -361,22 +417,23 @@ const ServiceSection = () => {
       lineHeight: 1.2,
     },
     subtitle: {
-      fontSize: '1.2rem',
+      fontSize: 'clamp(1rem, 3vw, 1.2rem)',
       color: '#1E40AF',
       maxWidth: 700,
       margin: '0 auto',
       lineHeight: 1.6,
       fontWeight: 500,
+      padding: '0 15px',
     },
     servicesGrid: {
       display: 'grid',
-      gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))',
-      gap: '30px',
+      gridTemplateColumns: 'repeat(auto-fit, minmax(min(320px, 100%), 1fr))',
+      gap: 'clamp(20px, 4vw, 30px)',
     },
     serviceCard: {
       background: 'rgba(255, 255, 255, 0.95)',
       backdropFilter: 'blur(10px)',
-      borderRadius: '20px',
+      borderRadius: 'clamp(15px, 4vw, 20px)',
       overflow: 'hidden',
       border: `1px solid ${GOLD}`,
       transition: 'all 0.3s ease',
@@ -384,7 +441,7 @@ const ServiceSection = () => {
       cursor: 'pointer',
     },
     cardContent: {
-      padding: '30px',
+      padding: 'clamp(20px, 5vw, 30px)',
       height: '100%',
       display: 'flex',
       flexDirection: 'column',
@@ -392,32 +449,34 @@ const ServiceSection = () => {
     serviceHeader: {
       display: 'flex',
       alignItems: 'flex-start',
-      gap: '20px',
-      marginBottom: '20px',
+      gap: 'clamp(15px, 4vw, 20px)',
+      marginBottom: 'clamp(15px, 4vw, 20px)',
+      flexWrap: 'wrap',
     },
     serviceIcon: {
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
-      width: '60px',
-      height: '60px',
-      borderRadius: '15px',
+      width: 'clamp(50px, 12vw, 60px)',
+      height: 'clamp(50px, 12vw, 60px)',
+      borderRadius: 'clamp(12px, 3vw, 15px)',
       background: `linear-gradient(135deg, ${GOLD}20, ${ACCENT_BLUE}20)`,
       color: PRIMARY_BLUE,
       flexShrink: 0,
     },
     serviceTitleSection: {
       flex: 1,
+      minWidth: '150px',
     },
     serviceTitle: {
-      fontSize: '1.4rem',
+      fontSize: 'clamp(1.1rem, 3vw, 1.4rem)',
       fontWeight: 700,
       color: PRIMARY_BLUE,
-      margin: '0 0 10px 0',
+      margin: '0 0 clamp(8px, 2vw, 10px) 0',
       lineHeight: 1.3,
     },
     serviceDescription: {
-      fontSize: '0.95rem',
+      fontSize: 'clamp(0.85rem, 2.2vw, 0.95rem)',
       color: '#4B5563',
       lineHeight: 1.6,
       margin: 0,
@@ -425,9 +484,9 @@ const ServiceSection = () => {
     imageContainer: {
       position: 'relative',
       overflow: 'hidden',
-      borderRadius: '12px',
-      marginBottom: '20px',
-      height: '150px',
+      borderRadius: 'clamp(10px, 2.5vw, 12px)',
+      marginBottom: 'clamp(15px, 4vw, 20px)',
+      height: 'clamp(120px, 30vw, 150px)',
     },
     serviceImage: {
       width: '100%',
@@ -441,11 +500,11 @@ const ServiceSection = () => {
       left: 0,
       right: 0,
       background: 'linear-gradient(to top, rgba(30, 58, 138, 0.8), transparent)',
-      padding: '15px 20px',
+      padding: 'clamp(12px, 3vw, 15px) clamp(15px, 4vw, 20px)',
     },
     overlayText: {
       color: GOLD,
-      fontSize: '14px',
+      fontSize: 'clamp(12px, 2.5vw, 14px)',
       fontWeight: 600,
       letterSpacing: '0.5px',
     },
@@ -454,12 +513,12 @@ const ServiceSection = () => {
       alignItems: 'center',
       justifyContent: 'center',
       width: '100%',
-      padding: '12px 20px',
+      padding: 'clamp(10px, 2.5vw, 12px) clamp(16px, 4vw, 20px)',
       background: `linear-gradient(135deg, ${PRIMARY_BLUE}, ${ACCENT_BLUE})`,
       color: 'white',
       border: 'none',
-      borderRadius: '10px',
-      fontSize: '1rem',
+      borderRadius: 'clamp(8px, 2vw, 10px)',
+      fontSize: 'clamp(0.9rem, 2.3vw, 1rem)',
       fontWeight: 600,
       cursor: 'pointer',
       marginTop: 'auto',
@@ -478,12 +537,12 @@ const ServiceSection = () => {
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
-      padding: '20px',
+      padding: 'min(20px, 5vw)',
       overflowY: 'auto',
     },
     detailsContainer: {
       background: 'white',
-      borderRadius: '24px',
+      borderRadius: 'min(24px, 4vw)',
       maxWidth: '1200px',
       width: '100%',
       maxHeight: '90vh',
@@ -493,19 +552,19 @@ const ServiceSection = () => {
     },
     detailsHeader: {
       background: `linear-gradient(135deg, ${PRIMARY_BLUE}, ${ACCENT_BLUE})`,
-      padding: '40px',
+      padding: 'clamp(20px, 5vw, 40px)',
       color: 'white',
       position: 'relative',
       overflow: 'hidden',
     },
     closeButton: {
       position: 'absolute',
-      top: '20px',
-      right: '20px',
+      top: 'clamp(10px, 3vw, 20px)',
+      right: 'clamp(10px, 3vw, 20px)',
       background: 'rgba(255, 255, 255, 0.2)',
       border: 'none',
-      width: '50px',
-      height: '50px',
+      width: 'clamp(40px, 10vw, 50px)',
+      height: 'clamp(40px, 10vw, 50px)',
       borderRadius: '50%',
       display: 'flex',
       alignItems: 'center',
@@ -514,17 +573,19 @@ const ServiceSection = () => {
       cursor: 'pointer',
       backdropFilter: 'blur(10px)',
       transition: 'all 0.3s ease',
+      zIndex: 10,
     },
     headerContent: {
       display: 'flex',
       alignItems: 'center',
-      gap: '30px',
-      maxWidth: '800px',
+      gap: 'clamp(15px, 4vw, 30px)',
+      maxWidth: '100%',
+      flexWrap: 'wrap',
     },
     headerIcon: {
-      width: '80px',
-      height: '80px',
-      borderRadius: '20px',
+      width: 'clamp(50px, 12vw, 80px)',
+      height: 'clamp(50px, 12vw, 80px)',
+      borderRadius: 'clamp(10px, 3vw, 20px)',
       background: 'rgba(255, 255, 255, 0.2)',
       display: 'flex',
       alignItems: 'center',
@@ -534,46 +595,49 @@ const ServiceSection = () => {
     },
     headerTitleSection: {
       flex: 1,
+      minWidth: '200px',
     },
     headerTitle: {
-      fontSize: '2.5rem',
+      fontSize: 'clamp(1.5rem, 4vw, 2.5rem)',
       fontWeight: 700,
-      margin: '0 0 15px 0',
+      margin: '0 0 clamp(8px, 2vw, 15px) 0',
       color: 'white',
+      lineHeight: 1.2,
     },
     headerDescription: {
-      fontSize: '1.1rem',
+      fontSize: 'clamp(0.9rem, 2.5vw, 1.1rem)',
       opacity: 0.9,
       lineHeight: 1.6,
       margin: 0,
     },
     detailsContent: {
-      padding: '40px',
+      padding: 'clamp(20px, 5vw, 40px)',
       overflowY: 'auto',
       maxHeight: 'calc(90vh - 200px)',
+      WebkitOverflowScrolling: 'touch',
     },
     fullDescription: {
-      fontSize: '1.1rem',
+      fontSize: 'clamp(0.95rem, 2.5vw, 1.1rem)',
       color: '#4B5563',
       lineHeight: 1.8,
-      marginBottom: '40px',
-      maxWidth: '800px',
+      marginBottom: 'clamp(20px, 5vw, 40px)',
+      maxWidth: '100%',
     },
     statsGrid: {
       display: 'grid',
-      gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))',
-      gap: '20px',
-      marginBottom: '40px',
+      gridTemplateColumns: 'repeat(auto-fit, minmax(120px, 1fr))',
+      gap: 'clamp(10px, 3vw, 20px)',
+      marginBottom: 'clamp(20px, 5vw, 40px)',
     },
     statCard: {
       background: `linear-gradient(135deg, ${GOLD}10, ${ACCENT_BLUE}10)`,
       border: `1px solid ${GOLD}30`,
-      borderRadius: '15px',
-      padding: '20px',
+      borderRadius: 'clamp(10px, 3vw, 15px)',
+      padding: 'clamp(15px, 4vw, 20px)',
       textAlign: 'center',
     },
     statValue: {
-      fontSize: '2rem',
+      fontSize: 'clamp(1.5rem, 4vw, 2rem)',
       fontWeight: 700,
       background: `linear-gradient(135deg, ${PRIMARY_BLUE}, ${ACCENT_BLUE})`,
       backgroundClip: 'text',
@@ -582,125 +646,130 @@ const ServiceSection = () => {
       margin: '0 0 5px 0',
     },
     statLabel: {
-      fontSize: '0.9rem',
+      fontSize: 'clamp(0.8rem, 2vw, 0.9rem)',
       color: '#4B5563',
       margin: 0,
     },
     detailsSections: {
       display: 'grid',
-      gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-      gap: '30px',
-      marginBottom: '40px',
+      gridTemplateColumns: 'repeat(auto-fit, minmax(min(280px, 100%), 1fr))',
+      gap: 'clamp(15px, 4vw, 30px)',
+      marginBottom: 'clamp(20px, 5vw, 40px)',
     },
     detailSection: {
       background: 'rgba(255, 255, 255, 0.5)',
-      padding: '25px',
-      borderRadius: '15px',
+      padding: 'clamp(15px, 4vw, 25px)',
+      borderRadius: 'clamp(10px, 3vw, 15px)',
       border: `1px solid ${GOLD}20`,
     },
     detailTitle: {
-      fontSize: '1.2rem',
+      fontSize: 'clamp(1rem, 3vw, 1.2rem)',
       fontWeight: 600,
       color: PRIMARY_BLUE,
-      margin: '0 0 20px 0',
+      margin: '0 0 clamp(12px, 3vw, 20px) 0',
       display: 'flex',
       alignItems: 'center',
+      gap: '10px',
+      flexWrap: 'wrap',
     },
     featuresList: {
       display: 'flex',
       flexDirection: 'column',
-      gap: '12px',
+      gap: 'clamp(8px, 2vw, 12px)',
     },
     featureItem: {
       display: 'flex',
       alignItems: 'center',
-      fontSize: '0.95rem',
+      fontSize: 'clamp(0.85rem, 2.2vw, 0.95rem)',
       color: '#4B5563',
+      lineHeight: 1.5,
     },
     bulletPoint: {
-      width: '8px',
-      height: '8px',
+      width: 'clamp(6px, 1.5vw, 8px)',
+      height: 'clamp(6px, 1.5vw, 8px)',
       borderRadius: '50%',
       background: GOLD,
-      marginRight: '12px',
+      marginRight: 'clamp(8px, 2vw, 12px)',
       flexShrink: 0,
     },
     toolsGrid: {
       display: 'flex',
       flexWrap: 'wrap',
-      gap: '10px',
+      gap: 'clamp(6px, 2vw, 10px)',
     },
     toolBadge: {
       display: 'flex',
       alignItems: 'center',
       background: 'white',
-      padding: '8px 15px',
-      borderRadius: '25px',
+      padding: 'clamp(6px, 1.5vw, 8px) clamp(10px, 3vw, 15px)',
+      borderRadius: 'clamp(15px, 4vw, 25px)',
       border: `1px solid ${ACCENT_BLUE}30`,
-      fontSize: '0.9rem',
+      fontSize: 'clamp(0.8rem, 2vw, 0.9rem)',
       fontWeight: 500,
       color: PRIMARY_BLUE,
       transition: 'all 0.3s ease',
     },
     toolColor: {
-      width: '12px',
-      height: '12px',
+      width: 'clamp(10px, 2.5vw, 12px)',
+      height: 'clamp(10px, 2.5vw, 12px)',
       borderRadius: '50%',
-      marginRight: '8px',
+      marginRight: 'clamp(6px, 1.5vw, 8px)',
+      flexShrink: 0,
     },
     processBenefitsGrid: {
       display: 'grid',
-      gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-      gap: '30px',
-      marginBottom: '40px',
+      gridTemplateColumns: 'repeat(auto-fit, minmax(min(280px, 100%), 1fr))',
+      gap: 'clamp(15px, 4vw, 30px)',
+      marginBottom: 'clamp(20px, 5vw, 40px)',
     },
     processSteps: {
       display: 'flex',
       flexDirection: 'column',
-      gap: '15px',
+      gap: 'clamp(10px, 2.5vw, 15px)',
     },
     processStep: {
       display: 'flex',
       alignItems: 'center',
-      gap: '15px',
+      gap: 'clamp(10px, 3vw, 15px)',
     },
     stepNumber: {
-      width: '30px',
-      height: '30px',
+      width: 'clamp(28px, 7vw, 30px)',
+      height: 'clamp(28px, 7vw, 30px)',
       borderRadius: '50%',
       background: `linear-gradient(135deg, ${GOLD}, ${BRIGHT_GOLD})`,
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
-      fontSize: '0.9rem',
+      fontSize: 'clamp(0.8rem, 2vw, 0.9rem)',
       fontWeight: 700,
       color: PRIMARY_BLUE,
       flexShrink: 0,
     },
     stepText: {
-      fontSize: '0.95rem',
+      fontSize: 'clamp(0.85rem, 2.2vw, 0.95rem)',
       color: '#4B5563',
       fontWeight: 500,
+      lineHeight: 1.4,
     },
     benefitsGrid: {
       display: 'grid',
-      gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
-      gap: '20px',
+      gridTemplateColumns: 'repeat(auto-fit, minmax(min(220px, 100%), 1fr))',
+      gap: 'clamp(12px, 3vw, 20px)',
     },
     benefitCard: {
       background: `linear-gradient(135deg, ${GOLD}10, ${ACCENT_BLUE}10)`,
       border: `1px solid ${GOLD}30`,
-      borderRadius: '12px',
-      padding: '20px',
+      borderRadius: 'clamp(10px, 2.5vw, 12px)',
+      padding: 'clamp(15px, 4vw, 20px)',
       display: 'flex',
       alignItems: 'flex-start',
-      gap: '15px',
+      gap: 'clamp(10px, 3vw, 15px)',
       transition: 'all 0.3s ease',
     },
     benefitIcon: {
-      width: '40px',
-      height: '40px',
-      borderRadius: '10px',
+      width: 'clamp(35px, 8vw, 40px)',
+      height: 'clamp(35px, 8vw, 40px)',
+      borderRadius: 'clamp(8px, 2vw, 10px)',
       background: `linear-gradient(135deg, ${GOLD}30, ${ACCENT_BLUE}30)`,
       display: 'flex',
       alignItems: 'center',
@@ -710,15 +779,17 @@ const ServiceSection = () => {
     },
     benefitContent: {
       flex: 1,
+      minWidth: 0,
     },
     benefitTitle: {
-      fontSize: '1rem',
+      fontSize: 'clamp(0.9rem, 2.5vw, 1rem)',
       fontWeight: 600,
       color: PRIMARY_BLUE,
-      margin: '0 0 5px 0',
+      margin: '0 0 clamp(3px, 1vw, 5px) 0',
+      lineHeight: 1.3,
     },
     benefitDesc: {
-      fontSize: '0.85rem',
+      fontSize: 'clamp(0.75rem, 2vw, 0.85rem)',
       color: '#4B5563',
       margin: 0,
       lineHeight: 1.5,
@@ -728,158 +799,156 @@ const ServiceSection = () => {
       alignItems: 'center',
       justifyContent: 'center',
       width: '100%',
-      padding: '15px 30px',
+      padding: 'clamp(12px, 3vw, 15px) clamp(20px, 5vw, 30px)',
       background: `linear-gradient(135deg, ${PRIMARY_BLUE}, ${ACCENT_BLUE})`,
       color: 'white',
       border: 'none',
-      borderRadius: '12px',
-      fontSize: '1.1rem',
+      borderRadius: 'clamp(10px, 2.5vw, 12px)',
+      fontSize: 'clamp(0.95rem, 2.5vw, 1.1rem)',
       fontWeight: 600,
       cursor: 'pointer',
-      marginTop: '20px',
+      marginTop: 'clamp(15px, 4vw, 20px)',
       transition: 'all 0.3s ease',
     },
   };
 
   return (
-    <>
-      <section style={styles.section}>
-        {/* Animated Background */}
-        <div style={styles.animatedBackground}>
-          {[...Array(20)].map((_, i) => (
-            <motion.div
-              key={i}
-              style={{
-                ...styles.floatingShape,
-                left: `${(i * 5) % 100}%`,
-                top: `${30 + (i * 3) % 50}%`,
-                width: `${20 + i * 2}px`,
-                height: `${20 + i * 2}px`,
-                background: `radial-gradient(circle, ${
-                  i % 2 === 0 ? ACCENT_BLUE : GOLD
-                }15, transparent 70%)`,
-              }}
-              animate={{
-                y: [0, -30, 0],
-                rotate: [0, 180, 360],
-                scale: [1, 1.2, 1],
-              }}
-              transition={{
-                duration: 10 + i,
-                repeat: Infinity,
-                ease: "easeInOut",
-                delay: i * 0.5,
-              }}
-            />
-          ))}
-        </div>
-
-        <div style={styles.container}>
+    <section style={styles.section} id="services-section">
+      {/* Animated Background */}
+      <div style={styles.animatedBackground}>
+        {[...Array(20)].map((_, i) => (
           <motion.div
-            style={styles.header}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            key={i}
+            style={{
+              ...styles.floatingShape,
+              left: `${(i * 5) % 100}%`,
+              top: `${30 + (i * 3) % 50}%`,
+              width: `${20 + i * 2}px`,
+              height: `${20 + i * 2}px`,
+              background: `radial-gradient(circle, ${
+                i % 2 === 0 ? ACCENT_BLUE : GOLD
+              }15, transparent 70%)`,
+            }}
+            animate={{
+              y: [0, -30, 0],
+              rotate: [0, 180, 360],
+              scale: [1, 1.2, 1],
+            }}
+            transition={{
+              duration: 10 + i,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: i * 0.5,
+            }}
+          />
+        ))}
+      </div>
+
+      <div style={styles.container}>
+        <motion.div
+          style={styles.header}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
+          <motion.div
+            style={styles.badge}
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            <motion.div
-              style={styles.badge}
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              viewport={{ once: true }}
-            >
-              <Zap size={16} style={{ marginRight: 8 }} />
-              Our Services
-            </motion.div>
-            <motion.h2 
-              style={styles.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              viewport={{ once: true }}
-            >
-              Comprehensive Software Solutions
-            </motion.h2>
-            <motion.p
-              style={styles.subtitle}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              viewport={{ once: true }}
-            >
-              We offer end-to-end software development services, from initial concept to 
-              deployment and maintenance, using cutting-edge technologies.
-            </motion.p>
+            <Zap size={16} style={{ marginRight: 8 }} />
+            Our Services
           </motion.div>
+          <motion.h2 
+            style={styles.title}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            viewport={{ once: true }}
+          >
+            Comprehensive Software Solutions
+          </motion.h2>
+          <motion.p
+            style={styles.subtitle}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            viewport={{ once: true }}
+          >
+            We offer end-to-end software development services, from initial concept to 
+            deployment and maintenance, using cutting-edge technologies.
+          </motion.p>
+        </motion.div>
 
-          <div style={styles.servicesGrid}>
-            {services.map((service, index) => (
-              <motion.div
-                key={service.id}
-                style={styles.serviceCard}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true, amount: 0.1 }}
-                whileHover={{ 
-                  scale: 1.02,
-                  boxShadow: `0 20px 40px ${PRIMARY_BLUE}20`
-                }}
-                onClick={() => setSelectedService(service)}
-              >
-                <div style={styles.cardContent}>
-                  {/* Service Header */}
-                  <div style={styles.serviceHeader}>
-                    <motion.div
-                      style={styles.serviceIcon}
-                      whileHover={{ rotate: 15, scale: 1.1 }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      {service.icon}
-                    </motion.div>
-                    <div style={styles.serviceTitleSection}>
-                      <h3 style={styles.serviceTitle}>{service.title}</h3>
-                      <p style={styles.serviceDescription}>{service.description}</p>
-                    </div>
-                  </div>
-
-                  {/* Service Image */}
-                  <div style={styles.imageContainer}>
-                    <motion.img
-                      src={service.image}
-                      alt={service.title}
-                      style={styles.serviceImage}
-                      whileHover={{ scale: 1.1 }}
-                      transition={{ duration: 0.3 }}
-                      onError={(e) => {
-                        e.target.onerror = null;
-                        e.target.src = "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80";
-                      }}
-                    />
-                    <div style={styles.imageOverlay}>
-                      <span style={styles.overlayText}>{service.title}</span>
-                    </div>
-                  </div>
-
-                  {/* View Details Button */}
-                  <motion.button
-                    style={styles.viewDetailsButton}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      setSelectedService(service);
-                    }}
+        <div style={styles.servicesGrid}>
+          {services.map((service, index) => (
+            <motion.div
+              key={service.id}
+              style={styles.serviceCard}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              viewport={{ once: true, amount: 0.1 }}
+              whileHover={{ 
+                scale: 1.02,
+                boxShadow: `0 20px 40px ${PRIMARY_BLUE}20`
+              }}
+              onClick={() => handleCardClick(service)}
+            >
+              <div style={styles.cardContent}>
+                {/* Service Header */}
+                <div style={styles.serviceHeader}>
+                  <motion.div
+                    style={styles.serviceIcon}
+                    whileHover={{ rotate: 15, scale: 1.1 }}
+                    transition={{ duration: 0.3 }}
                   >
-                    View Details
-                  </motion.button>
+                    {service.icon}
+                  </motion.div>
+                  <div style={styles.serviceTitleSection}>
+                    <h3 style={styles.serviceTitle}>{service.title}</h3>
+                    <p style={styles.serviceDescription}>{service.description}</p>
+                  </div>
                 </div>
-              </motion.div>
-            ))}
-          </div>
+
+                {/* Service Image */}
+                <div style={styles.imageContainer}>
+                  <motion.img
+                    src={service.image}
+                    alt={service.title}
+                    style={styles.serviceImage}
+                    whileHover={{ scale: 1.1 }}
+                    transition={{ duration: 0.3 }}
+                    onError={(e) => {
+                      e.target.onerror = null;
+                      e.target.src = "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80";
+                    }}
+                  />
+                  <div style={styles.imageOverlay}>
+                    <span style={styles.overlayText}>{service.title}</span>
+                  </div>
+                </div>
+
+                {/* View Details Button */}
+                <motion.button
+                  style={styles.viewDetailsButton}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleCardClick(service);
+                  }}
+                >
+                  View Details
+                </motion.button>
+              </div>
+            </motion.div>
+          ))}
         </div>
-      </section>
+      </div>
 
       {/* DETAILS MODAL */}
       <AnimatePresence>
@@ -901,14 +970,14 @@ const ServiceSection = () => {
             >
               {/* Header */}
               <div style={styles.detailsHeader}>
-                <button
+                <motion.button
                   style={styles.closeButton}
                   onClick={() => setSelectedService(null)}
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
                 >
-                  <X size={24} />
-                </button>
+                  <X size={isMobile ? 20 : 24} />
+                </motion.button>
                 
                 <div style={styles.headerContent}>
                   <motion.div
@@ -916,7 +985,9 @@ const ServiceSection = () => {
                     animate={{ rotate: [0, 360] }}
                     transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
                   >
-                    {selectedService.icon}
+                    {React.cloneElement(selectedService.icon, { 
+                      size: isMobile ? 28 : 48 
+                    })}
                   </motion.div>
                   <div style={styles.headerTitleSection}>
                     <h2 style={styles.headerTitle}>{selectedService.title}</h2>
@@ -948,7 +1019,7 @@ const ServiceSection = () => {
                   {/* Features */}
                   <div style={styles.detailSection}>
                     <h4 style={styles.detailTitle}>
-                      <CheckCircle size={24} style={{ marginRight: 10 }} />
+                      <CheckCircle size={isMobile ? 20 : 24} style={{ flexShrink: 0 }} />
                       Key Features
                     </h4>
                     <div style={styles.featuresList}>
@@ -970,7 +1041,7 @@ const ServiceSection = () => {
                   {/* Tools */}
                   <div style={styles.detailSection}>
                     <h4 style={styles.detailTitle}>
-                      <Code size={24} style={{ marginRight: 10 }} />
+                      <Code size={isMobile ? 20 : 24} style={{ flexShrink: 0 }} />
                       Technology Stack
                     </h4>
                     <div style={styles.toolsGrid}>
@@ -1001,7 +1072,7 @@ const ServiceSection = () => {
                   {/* Process */}
                   <div style={styles.detailSection}>
                     <h4 style={styles.detailTitle}>
-                      <Settings size={24} style={{ marginRight: 10 }} />
+                      <Settings size={isMobile ? 20 : 24} style={{ flexShrink: 0 }} />
                       Our Process
                     </h4>
                     <div style={styles.processSteps}>
@@ -1023,7 +1094,7 @@ const ServiceSection = () => {
                   {/* Benefits */}
                   <div style={styles.detailSection}>
                     <h4 style={styles.detailTitle}>
-                      <CheckCircle size={24} style={{ marginRight: 10 }} />
+                      <CheckCircle size={isMobile ? 20 : 24} style={{ flexShrink: 0 }} />
                       Key Benefits
                     </h4>
                     <div style={styles.benefitsGrid}>
@@ -1037,7 +1108,9 @@ const ServiceSection = () => {
                           whileHover={{ y: -5, boxShadow: `0 10px 20px ${PRIMARY_BLUE}10` }}
                         >
                           <div style={styles.benefitIcon}>
-                            {benefit.icon}
+                            {React.cloneElement(benefit.icon, { 
+                              size: isMobile ? 18 : 20 
+                            })}
                           </div>
                           <div style={styles.benefitContent}>
                             <h5 style={styles.benefitTitle}>{benefit.title}</h5>
@@ -1066,7 +1139,7 @@ const ServiceSection = () => {
           </motion.div>
         )}
       </AnimatePresence>
-    </>
+    </section>
   );
 };
 

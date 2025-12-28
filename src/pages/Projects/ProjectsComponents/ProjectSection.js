@@ -1,13 +1,5 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import {
-  Users, Heart, Building2, Briefcase, Cpu, Globe,
-  Shield, Database, Zap, CheckCircle, ChevronDown, X,
-  Calendar, ShoppingCart, CreditCard, Cloud, Lock,
-  BarChart, Smartphone, MessageSquare, FileText, Settings,
-  Video, Play, Code, Target, Rocket, BookOpen, ArrowRight,
-  FileCode, Monitor, Server, Wrench, Palette, LineChart
-} from "lucide-react";
 
 const ProjectSection = () => {
   const [expandedCategory, setExpandedCategory] = useState(null);
@@ -17,9 +9,7 @@ const ProjectSection = () => {
   const PRIMARY_BLUE = '#1E3A8A';
   const ACCENT_BLUE = '#3B82F6';
   const DARK_BLUE = '#0F172A';
-  const GOLD = '#FFD700';
   const DARK_GOLD = '#B8860B';
-  const LIGHT_BLUE = '#E6F7FF';
   const CARD_BG = '#FFFFFF';
   const SECTION_BG = '#F8FAFC';
 
@@ -27,7 +17,6 @@ const ProjectSection = () => {
     {
       id: "crm",
       title: "CRM Solution",
-      icon: <Users />,
       color: "#3B82F6",
       gradient: "linear-gradient(135deg, #3B82F6, #1D4ED8)",
       shortDescription: "Complete suite for optimizing customer relationships and driving business growth.",
@@ -47,12 +36,12 @@ const ProjectSection = () => {
           title: "Core Features",
           type: "features",
           items: [
-            { icon: <Users />, title: "Lead Management", description: "Track and manage leads through the entire sales pipeline" },
-            { icon: <MessageSquare />, title: "Marketing Automation", description: "Automate campaigns and customer communications" },
-            { icon: <BarChart />, title: "Analytics & Reporting", description: "Real-time insights into customer behavior and sales performance" },
-            { icon: <Smartphone />, title: "Mobile CRM", description: "Access your CRM on any device, anywhere" },
-            { icon: <Cloud />, title: "Cloud Integration", description: "Seamlessly integrate with existing business tools" },
-            { icon: <Shield />, title: "Security & Compliance", description: "Enterprise-grade security with data protection" }
+            { title: "Lead Management", description: "Track and manage leads through the entire sales pipeline" },
+            { title: "Marketing Automation", description: "Automate campaigns and customer communications" },
+            { title: "Analytics & Reporting", description: "Real-time insights into customer behavior and sales performance" },
+            { title: "Mobile CRM", description: "Access your CRM on any device, anywhere" },
+            { title: "Cloud Integration", description: "Seamlessly integrate with existing business tools" },
+            { title: "Security & Compliance", description: "Enterprise-grade security with data protection" }
           ]
         }
       ]
@@ -60,7 +49,6 @@ const ProjectSection = () => {
     {
       id: "healthcare",
       title: "Healthcare Systems",
-      icon: <Heart />,
       color: "#EF4444",
       gradient: "linear-gradient(135deg, #EF4444, #DC2626)",
       shortDescription: "Comprehensive eHealth solutions for modern medical practices with 24/7 access.",
@@ -96,36 +84,12 @@ const ProjectSection = () => {
           title: "Key Capabilities",
           type: "grid",
           items: [
-            {
-              icon: <FileText />,
-              title: "Patient Registration",
-              description: "Secure cloud-based patient management"
-            },
-            {
-              icon: <Calendar />,
-              title: "Appointment Scheduling",
-              description: "Intuitive calendar management system"
-            },
-            {
-              icon: <Database />,
-              title: "Medical Records",
-              description: "Complete paperless recordkeeping"
-            },
-            {
-              icon: <CreditCard />,
-              title: "Billing System",
-              description: "Automated billing with insurance support"
-            },
-            {
-              icon: <Building2 />,
-              title: "Hospital Management",
-              description: "Complete OPD and IPD management"
-            },
-            {
-              icon: <Cpu />,
-              title: "Lab Integration",
-              description: "Direct lab test result integration"
-            }
+            { title: "Patient Registration", description: "Secure cloud-based patient management" },
+            { title: "Appointment Scheduling", description: "Intuitive calendar management system" },
+            { title: "Medical Records", description: "Complete paperless recordkeeping" },
+            { title: "Billing System", description: "Automated billing with insurance support" },
+            { title: "Hospital Management", description: "Complete OPD and IPD management" },
+            { title: "Lab Integration", description: "Direct lab test result integration" }
           ]
         }
       ]
@@ -133,7 +97,6 @@ const ProjectSection = () => {
     {
       id: "asset",
       title: "Asset Management",
-      icon: <Briefcase />,
       color: "#10B981",
       gradient: "linear-gradient(135deg, #10B981, #059669)",
       shortDescription: "Enterprise-grade solution for complete visibility and optimization of physical and digital assets.",
@@ -153,12 +116,12 @@ const ProjectSection = () => {
           title: "Management Features",
           type: "features",
           items: [
-            { icon: <Globe />, title: "Complete Asset Tracking", description: "Real-time tracking of all physical and digital assets" },
-            { icon: <Calendar />, title: "Lifecycle Management", description: "From procurement to disposal, manage every stage" },
-            { icon: <LineChart />, title: "Predictive Maintenance", description: "AI-powered insights for preventive maintenance" },
-            { icon: <Shield />, title: "Compliance Management", description: "Ensure regulatory compliance across all assets" },
-            { icon: <Server />, title: "IoT Integration", description: "Connect with IoT devices for real-time monitoring" },
-            { icon: <Database />, title: "Reporting & Analytics", description: "Comprehensive reports on asset performance and ROI" }
+            { title: "Complete Asset Tracking", description: "Real-time tracking of all physical and digital assets" },
+            { title: "Lifecycle Management", description: "From procurement to disposal, manage every stage" },
+            { title: "Predictive Maintenance", description: "AI-powered insights for preventive maintenance" },
+            { title: "Compliance Management", description: "Ensure regulatory compliance across all assets" },
+            { title: "IoT Integration", description: "Connect with IoT devices for real-time monitoring" },
+            { title: "Reporting & Analytics", description: "Comprehensive reports on asset performance and ROI" }
           ]
         }
       ]
@@ -166,7 +129,6 @@ const ProjectSection = () => {
     {
       id: "workplace",
       title: "Digital Workplace",
-      icon: <Cpu />,
       color: "#8B5CF6",
       gradient: "linear-gradient(135deg, #8B5CF6, #7C3AED)",
       shortDescription: "Unified platform connecting people, processes, and technology for seamless collaboration.",
@@ -186,36 +148,12 @@ const ProjectSection = () => {
           title: "Platform Features",
           type: "grid",
           items: [
-            {
-              icon: <MessageSquare />,
-              title: "Unified Communication",
-              description: "Integrated chat, video calls, and team collaboration tools"
-            },
-            {
-              icon: <FileText />,
-              title: "Document Management",
-              description: "Centralized document storage with version control"
-            },
-            {
-              icon: <Settings />,
-              title: "Workflow Automation",
-              description: "Automate routine tasks and business processes"
-            },
-            {
-              icon: <Smartphone />,
-              title: "Mobile Workforce",
-              description: "Access workplace tools from any device, anywhere"
-            },
-            {
-              icon: <Lock />,
-              title: "Enterprise Security",
-              description: "Advanced security features with single sign-on"
-            },
-            {
-              icon: <BarChart />,
-              title: "Analytics Dashboard",
-              description: "Real-time insights into workplace productivity"
-            }
+            { title: "Unified Communication", description: "Integrated chat, video calls, and team collaboration tools" },
+            { title: "Document Management", description: "Centralized document storage with version control" },
+            { title: "Workflow Automation", description: "Automate routine tasks and business processes" },
+            { title: "Mobile Workforce", description: "Access workplace tools from any device, anywhere" },
+            { title: "Enterprise Security", description: "Advanced security features with single sign-on" },
+            { title: "Analytics Dashboard", description: "Real-time insights into workplace productivity" }
           ]
         }
       ]
@@ -223,7 +161,6 @@ const ProjectSection = () => {
     {
       id: "ecommerce",
       title: "E-commerce Platform",
-      icon: <ShoppingCart />,
       color: "#F59E0B",
       gradient: "linear-gradient(135deg, #F59E0B, #D97706)",
       shortDescription: "Complete online store solutions with payment integration and inventory management.",
@@ -243,12 +180,12 @@ const ProjectSection = () => {
           title: "Store Features",
           type: "features",
           items: [
-            { icon: <ShoppingCart />, title: "Store Setup & Design", description: "Beautiful, responsive online stores tailored to your brand" },
-            { icon: <CreditCard />, title: "Payment Integration", description: "Multiple payment gateways including Stripe, PayPal, and more" },
-            { icon: <Database />, title: "Inventory Management", description: "Real-time stock tracking and automated reordering" },
-            { icon: <Globe />, title: "Multi-channel Selling", description: "Sell across web, mobile, and social media platforms" },
-            { icon: <BarChart />, title: "Analytics Dashboard", description: "Detailed sales reports and customer insights" },
-            { icon: <Palette />, title: "Marketing Tools", description: "Email marketing, promotions, and SEO optimization" }
+            { title: "Store Setup & Design", description: "Beautiful, responsive online stores tailored to your brand" },
+            { title: "Payment Integration", description: "Multiple payment gateways including Stripe, PayPal, and more" },
+            { title: "Inventory Management", description: "Real-time stock tracking and automated reordering" },
+            { title: "Multi-channel Selling", description: "Sell across web, mobile, and social media platforms" },
+            { title: "Analytics Dashboard", description: "Detailed sales reports and customer insights" },
+            { title: "Marketing Tools", description: "Email marketing, promotions, and SEO optimization" }
           ]
         }
       ]
@@ -256,7 +193,6 @@ const ProjectSection = () => {
     {
       id: "booking",
       title: "Booking Systems",
-      icon: <Calendar />,
       color: "#EC4899",
       gradient: "linear-gradient(135deg, #EC4899, #DB2777)",
       shortDescription: "Professional booking systems for hotels, restaurants, and services with real-time availability.",
@@ -276,12 +212,12 @@ const ProjectSection = () => {
           title: "System Features",
           type: "features",
           items: [
-            { icon: <Calendar />, title: "Real-time Availability", description: "Instant booking confirmation with calendar sync" },
-            { icon: <Smartphone />, title: "Mobile Booking", description: "Mobile-optimized booking interface" },
-            { icon: <CreditCard />, title: "Online Payments", description: "Secure payment processing with multiple options" },
-            { icon: <MessageSquare />, title: "Automated Notifications", description: "Email and SMS confirmations & reminders" },
-            { icon: <BarChart />, title: "Analytics & Reporting", description: "Booking trends and revenue reports" },
-            { icon: <Settings />, title: "Staff Management", description: "Manage staff schedules and assignments" }
+            { title: "Real-time Availability", description: "Instant booking confirmation with calendar sync" },
+            { title: "Mobile Booking", description: "Mobile-optimized booking interface" },
+            { title: "Online Payments", description: "Secure payment processing with multiple options" },
+            { title: "Automated Notifications", description: "Email and SMS confirmations & reminders" },
+            { title: "Analytics & Reporting", description: "Booking trends and revenue reports" },
+            { title: "Staff Management", description: "Manage staff schedules and assignments" }
           ]
         }
       ]
@@ -358,27 +294,6 @@ const ProjectSection = () => {
       padding: '35px 35px 25px',
       position: 'relative',
     },
-    cardIconContainer: {
-      width: '80px',
-      height: '80px',
-      borderRadius: '20px',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      fontSize: '36px',
-      marginBottom: '25px',
-      position: 'relative',
-      overflow: 'hidden',
-    },
-    cardIconBackground: {
-      position: 'absolute',
-      top: 0,
-      left: 0,
-      right: 0,
-      bottom: 0,
-      opacity: 0.08,
-      background: 'currentColor',
-    },
     cardTitle: {
       fontSize: '1.6rem',
       fontWeight: 700,
@@ -405,9 +320,6 @@ const ProjectSection = () => {
       fontSize: '0.85rem',
       fontWeight: 600,
       color: DARK_BLUE,
-      display: 'flex',
-      alignItems: 'center',
-      gap: '6px',
     },
     cardImage: {
       width: '100%',
@@ -485,6 +397,8 @@ const ProjectSection = () => {
       cursor: 'pointer',
       transition: 'all 0.3s ease',
       zIndex: 10,
+      fontSize: '1.5rem',
+      fontWeight: 'bold',
     },
     modalTitleSection: {
       display: 'flex',
@@ -492,25 +406,8 @@ const ProjectSection = () => {
       gap: '25px',
       marginBottom: '25px',
     },
-    modalIcon: {
-      width: '70px',
-      height: '70px',
-      borderRadius: '18px',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      fontSize: '32px',
-      position: 'relative',
-      overflow: 'hidden',
-    },
-    modalIconBg: {
-      position: 'absolute',
-      top: 0,
-      left: 0,
-      right: 0,
-      bottom: 0,
-      opacity: 0.1,
-      background: 'currentColor',
+    modalTitleContainer: {
+      flex: 1,
     },
     modalTitle: {
       fontSize: '2.2rem',
@@ -566,17 +463,6 @@ const ProjectSection = () => {
       padding: '25px',
       border: '1px solid rgba(0, 0, 0, 0.03)',
       transition: 'all 0.3s ease',
-    },
-    featureIcon: {
-      width: '50px',
-      height: '50px',
-      borderRadius: '14px',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      marginBottom: '20px',
-      color: ACCENT_BLUE,
-      background: 'rgba(59, 130, 246, 0.08)',
     },
     featureTitle: {
       fontSize: '1.2rem',
@@ -634,6 +520,7 @@ const ProjectSection = () => {
       border: 'none',
       color: ACCENT_BLUE,
       fontSize: '28px',
+      fontWeight: 'bold',
       boxShadow: '0 10px 30px rgba(0, 0, 0, 0.2)',
     },
     videoModal: {
@@ -727,9 +614,6 @@ const ProjectSection = () => {
                   borderColor: 'rgba(59, 130, 246, 0.2)'
                 }}
               >
-                <div style={styles.featureIcon}>
-                  {item.icon}
-                </div>
                 <h4 style={styles.featureTitle}>{item.title}</h4>
                 <p style={styles.featureDescription}>{item.description}</p>
               </motion.div>
@@ -742,9 +626,6 @@ const ProjectSection = () => {
           <div style={styles.featuresGrid}>
             {section.items.map((item, idx) => (
               <div key={idx} style={styles.featureCard}>
-                <div style={styles.featureIcon}>
-                  {item.icon}
-                </div>
                 <h4 style={styles.featureTitle}>{item.title}</h4>
                 <p style={styles.featureDescription}>{item.description}</p>
               </div>
@@ -757,7 +638,7 @@ const ProjectSection = () => {
           <div style={styles.modulesGrid}>
             {section.items.map((module, idx) => (
               <div key={idx} style={styles.moduleItem}>
-                <CheckCircle size={20} color={ACCENT_BLUE} />
+                <span style={{ color: ACCENT_BLUE, fontWeight: 'bold' }}>✓</span>
                 <span style={{ color: DARK_BLUE, fontWeight: 500 }}>{module}</span>
               </div>
             ))}
@@ -828,17 +709,12 @@ const ProjectSection = () => {
                 <div className="gradient-border" style={styles.cardGradientBorder} />
                 
                 <div style={styles.cardHeader}>
-                  <div style={{ ...styles.cardIconContainer, color: category.color }}>
-                    <div style={styles.cardIconBackground} />
-                    {category.icon}
-                  </div>
                   <h3 style={styles.cardTitle}>{category.title}</h3>
                   <p style={styles.cardDescription}>{category.shortDescription}</p>
                   
                   <div style={styles.cardStats}>
                     {category.stats.map((stat, idx) => (
                       <div key={idx} style={styles.statBadge}>
-                        <Zap size={14} />
                         {stat.value} {stat.label}
                       </div>
                     ))}
@@ -867,8 +743,7 @@ const ProjectSection = () => {
                     }}
                     whileTap={{ scale: 0.98 }}
                   >
-                    Explore Solution
-                    <ArrowRight size={20} />
+                    Explore Solution →
                   </motion.button>
                 </div>
               </motion.div>
@@ -901,7 +776,7 @@ const ProjectSection = () => {
                 whileHover={{ scale: 1.1, background: 'rgba(15, 23, 42, 0.08)' }}
                 whileTap={{ scale: 0.9 }}
               >
-                <X size={24} />
+                ✕
               </button>
 
               {(() => {
@@ -912,11 +787,7 @@ const ProjectSection = () => {
                   <>
                     <div style={styles.modalHeader}>
                       <div style={styles.modalTitleSection}>
-                        <div style={{ ...styles.modalIcon, color: category.color }}>
-                          <div style={styles.modalIconBg} />
-                          {category.icon}
-                        </div>
-                        <div>
+                        <div style={styles.modalTitleContainer}>
                           <h3 style={styles.modalTitle}>{category.title}</h3>
                           <p style={styles.modalSubtitle}>{category.shortDescription}</p>
                         </div>
@@ -943,7 +814,7 @@ const ProjectSection = () => {
                             style={styles.playButton}
                             onClick={() => setSelectedVideo(category)}
                           >
-                            <Play size={32} />
+                            ▶
                           </button>
                         </motion.div>
                       )}
@@ -990,8 +861,7 @@ const ProjectSection = () => {
                         animate={{ opacity: 1 }}
                         transition={{ delay: 0.8 }}
                       >
-                        Close Details
-                        <ArrowRight size={20} />
+                        Close Details →
                       </motion.button>
                     </div>
                   </>
@@ -1024,7 +894,7 @@ const ProjectSection = () => {
                 style={styles.closeButton}
                 onClick={() => setSelectedVideo(null)}
               >
-                <X size={24} />
+                ✕
               </button>
               <iframe
                 src={selectedVideo.videoUrl}

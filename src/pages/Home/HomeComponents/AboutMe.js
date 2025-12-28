@@ -309,7 +309,7 @@ export default function AboutCompany() {
               whileTap={{ scale: 0.98 }}
               onClick={() => window.location.href = "/contact"}
             >
-              <span>Get Your Free Quote</span>
+              <span>Send Us A Message</span>
               <motion.svg 
                 width="18" 
                 height="18" 

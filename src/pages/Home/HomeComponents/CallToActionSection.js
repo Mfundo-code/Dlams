@@ -226,7 +226,7 @@ export default function CallToActionSection() {
                 repeat: Infinity
               }}
             >
-              Get Your Free Quote
+              Send Us A Message
             </motion.button>
           </motion.div>
         </motion.div>

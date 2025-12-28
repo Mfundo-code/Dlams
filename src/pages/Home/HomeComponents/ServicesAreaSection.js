@@ -28,6 +28,11 @@ const ServicesAreaSection = () => {
     }
   ];
 
+  // Function to handle button click - redirects to services page
+  const handleLearnMore = () => {
+    window.location.href = "/services";
+  };
+
   return (
     <section style={styles.container}>
       <div style={styles.header}>
@@ -62,8 +67,11 @@ const ServicesAreaSection = () => {
                 ))}
               </div>
               
-              <button style={styles.learnMoreButton}>
-                Get Quote
+              <button 
+                style={styles.learnMoreButton}
+                onClick={handleLearnMore}  // Added onClick handler
+              >
+                Learn More  {/* Changed from Get Quote to Learn More */}
                 <span style={styles.arrow}>→</span>
               </button>
             </div>
@@ -231,7 +239,7 @@ const hoverStyles = `
     
     .learn-more-btn:hover {
       transform: translateY(-1px);
-      box-shadow: 0 4px 15px rgba(30, 58, 138, 0.35);
+      boxShadow: 0 4px 15px rgba(30, 58, 138, 0.35);
       background: linear-gradient(135deg, #3B82F6 0%, #1E3A8A 100%);
     }
     
