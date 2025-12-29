@@ -1,7 +1,3 @@
-"""
-Django settings for Backend project.
-"""
-
 from pathlib import Path
 import os
 
@@ -11,7 +7,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings
 SECRET_KEY = 'django-insecure-)pq%q^h+947ws&y*q6qj%fw-k_9^^4qdn0lqm5y!p6bxx#fg$r'
 DEBUG = True
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'www.dlamsoft.co.za']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'www.dlamsoft.co.za', 'dlamsoft']
 
 # Application definition
 INSTALLED_APPS = [
@@ -27,9 +23,10 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
     'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -103,6 +100,7 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
     "http://127.0.0.1:3000",
     "https://www.dlamsoft.co.za",
+    "https://dlamsoft.co.za",
 ]
 
 CORS_ALLOW_CREDENTIALS = True
@@ -112,6 +110,7 @@ CSRF_TRUSTED_ORIGINS = [
     "http://localhost:3000",
     "http://127.0.0.1:3000",
     "https://www.dlamsoft.co.za",
+    "https://dlamsoft.co.za",
 ]
 
 # REST Framework settings
@@ -123,6 +122,15 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.IsAuthenticatedOrReadOnly',
     ],
 }
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'mfundoknox@gmail.com'
+EMAIL_HOST_PASSWORD = 'wqsdayocqqyofrns'  # Use environment variable in production!
+SERVER_EMAIL = 'mfundoknox@gmail.com'
+DEFAULT_FROM_EMAIL = 'DlamSoft <mfundoknox@gmail.com>'
 
 # File upload settings
 FILE_UPLOAD_MAX_MEMORY_SIZE = 10485760  # 10MB
