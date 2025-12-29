@@ -7,7 +7,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings
 SECRET_KEY = 'django-insecure-)pq%q^h+947ws&y*q6qj%fw-k_9^^4qdn0lqm5y!p6bxx#fg$r'
 DEBUG = True
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'www.dlamsoft.co.za', 'dlamsoft']
+
+ALLOWED_HOSTS = [
+    "dlamsoft.co.za",
+    "www.dlamsoft.co.za",
+    "127.0.0.1",
+    "localhost",
+]
+
 
 # Application definition
 INSTALLED_APPS = [
@@ -135,3 +142,5 @@ DEFAULT_FROM_EMAIL = 'DlamSoft <mfundoknox@gmail.com>'
 # File upload settings
 FILE_UPLOAD_MAX_MEMORY_SIZE = 10485760  # 10MB
 DATA_UPLOAD_MAX_MEMORY_SIZE = 10485760  # 10MB
+
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
