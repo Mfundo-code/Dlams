@@ -132,7 +132,7 @@ export default function TechSkills() {
     let connections = [];
     const mouse = { x: 0, y: 0, active: false };
 
-    const techSymbols = ['⚡', '🚀', '💻', '🔗', '🌐', '📱', '🔧', '🎯', '✨', '🌟'];
+    const techSymbols = [];
 
     class Node {
       constructor(x, y) {
@@ -610,7 +610,7 @@ export default function TechSkills() {
             transition={{ duration: 0.6, delay: 0.1 }}
             viewport={{ once: true }}
           >
-            Our Services & Solutions
+            Our Technology Stacks 
           </motion.h2>
           <motion.p 
             style={styles.subtitle}
