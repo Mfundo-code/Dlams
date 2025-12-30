@@ -44,18 +44,19 @@ const Header = () => {
 
   const styles = {
     header: {
-      background: `linear-gradient(135deg, ${LIGHT_BLUE} 0%, #ffffff 100%)`,
+      background: '#FFFFFF', // Pure white background
       color: PRIMARY_BLUE,
       padding: "15px 20px",
       display: "flex",
       justifyContent: "space-between",
       alignItems: "center",
-      boxShadow: "0 2px 10px rgba(30, 58, 138, 0.1)",
       position: "sticky",
       top: 0,
       zIndex: 100,
       height: "70px",
-      borderBottom: `2px solid ${GOLD}`,
+      // Removed all visual separators
+      boxShadow: "none", // No shadow
+      borderBottom: "none", // No border
       fontFamily: "'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif",
     },
     logoContainer: {
@@ -67,7 +68,7 @@ const Header = () => {
       height: "50px",
       cursor: "pointer",
       maxWidth: "100%",
-      filter: 'drop-shadow(0 2px 5px rgba(30, 58, 138, 0.15))',
+      filter: 'none', // Remove drop shadow
       transition: 'transform 0.3s ease',
     },
     nav: {
