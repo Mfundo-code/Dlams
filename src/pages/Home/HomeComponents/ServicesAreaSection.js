@@ -22,7 +22,7 @@ const ServicesAreaSection = () => {
     },
     {
       id: 4,
-      title: "Custom Software Solutions",
+      title: "Custom Software",
       description: "Tailored enterprise software solutions built specifically for your business workflows and requirements.",
       image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
     }

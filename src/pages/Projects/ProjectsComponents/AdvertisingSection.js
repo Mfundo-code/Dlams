@@ -11,63 +11,10 @@ const AdvertisingSection = () => {
     "Tailored to Your Workflow"
   ];
 
-  // Tech background symbols for the floating animation
-  const codeSymbols = ['</>', '{ }', '=>', '()', '[]', '/*', '==', '&&', '||', '++', 'fn', 'var'];
-
   return (
     <section className="ad-container">
       {/* Tech Background Elements */}
       <div className="tech-background">
-        {codeSymbols.map((symbol, index) => (
-          <motion.div
-            key={`code-${index}`}
-            className="code-particle"
-            style={{
-              left: `${(index * 8) + 2}%`,
-              fontSize: index % 2 === 0 ? '28px' : '22px',
-            }}
-            animate={{ 
-              y: [0, -80, 0],
-              opacity: [0, 1, 0.8, 1, 0],
-              scale: [0.5, 1.2, 1],
-              rotate: [0, 360]
-            }}
-            transition={{
-              duration: 6 + (index % 3),
-              repeat: Infinity,
-              delay: index * 0.5,
-              ease: "easeInOut"
-            }}
-          >
-            {symbol}
-          </motion.div>
-        ))}
-
-        {/* Binary digits falling */}
-        {Array.from({ length: 20 }).map((_, i) => (
-          <motion.div
-            key={`binary-${i}`}
-            className="binary-digit"
-            style={{
-              left: `${(i * 5) + Math.random() * 2}%`,
-              fontSize: Math.random() > 0.5 ? '18px' : '14px',
-            }}
-            animate={{
-              y: [-50, 400],
-              opacity: [0, 1, 0.8, 0],
-              rotate: [0, 180]
-            }}
-            transition={{
-              duration: 4 + Math.random() * 3,
-              repeat: Infinity,
-              delay: Math.random() * 3,
-              ease: "linear"
-            }}
-          >
-            {Math.random() > 0.5 ? '1' : '0'}
-          </motion.div>
-        ))}
-
         {/* Animated glowing orbs */}
         {[20, 40, 60, 80].map((left, i) => (
           <motion.div
@@ -277,23 +224,6 @@ const AdvertisingSection = () => {
           bottom: 0;
           overflow: hidden;
           pointer-events: none;
-        }
-
-        .code-particle {
-          position: absolute;
-          color: #1E3A8A;
-          font-weight: bold;
-          font-family: 'Fira Code', monospace;
-          text-shadow: 0 0 20px rgba(30, 58, 138, 0.8), 0 0 40px rgba(30, 58, 138, 0.4);
-          z-index: 1;
-        }
-
-        .binary-digit {
-          position: absolute;
-          color: #1E40AF;
-          font-family: 'Fira Code', monospace;
-          font-weight: bold;
-          text-shadow: 0 0 10px rgba(30, 64, 175, 0.6);
         }
 
         .glow-orb {

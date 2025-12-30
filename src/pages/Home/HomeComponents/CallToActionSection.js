@@ -3,64 +3,11 @@ import { motion } from "framer-motion";
 
 export default function CallToActionSection() {
   const [primaryHover, setPrimaryHover] = useState(false);
-  
-  const codeSymbols = ['</>', '{ }', '=>', '()', '[]', '/*', '==', '&&', '||', '++', 'fn', 'var'];
 
   return (
     <section style={styles.section} aria-labelledby="cta-heading">
-      {/* VERY VISIBLE Tech Background */}
+      {/* Simplified Background */}
       <div style={styles.techBackground}>
-        {/* Large floating particles with BRIGHT colors */}
-        {codeSymbols.map((symbol, index) => (
-          <motion.div
-            key={`code-${index}`}
-            style={{
-              ...styles.codeParticle,
-              left: `${(index * 8) + 2}%`,
-              fontSize: index % 2 === 0 ? '28px' : '22px',
-            }}
-            animate={{ 
-              y: [0, -80, 0],
-              opacity: [0, 1, 0.8, 1, 0],
-              scale: [0.5, 1.2, 1],
-              rotate: [0, 360]
-            }}
-            transition={{
-              duration: 6 + (index % 3),
-              repeat: Infinity,
-              delay: index * 0.5,
-              ease: "easeInOut"
-            }}
-          >
-            {symbol}
-          </motion.div>
-        ))}
-
-        {/* Large Binary digits falling */}
-        {Array.from({ length: 20 }).map((_, i) => (
-          <motion.div
-            key={`binary-${i}`}
-            style={{
-              ...styles.binaryDigit,
-              left: `${(i * 5) + Math.random() * 2}%`,
-              fontSize: Math.random() > 0.5 ? '18px' : '14px',
-            }}
-            animate={{
-              y: [-50, 400],
-              opacity: [0, 1, 0.8, 0],
-              rotate: [0, 180]
-            }}
-            transition={{
-              duration: 4 + Math.random() * 3,
-              repeat: Infinity,
-              delay: Math.random() * 3,
-              ease: "linear"
-            }}
-          >
-            {Math.random() > 0.5 ? '1' : '0'}
-          </motion.div>
-        ))}
-
         {/* Animated glowing orbs */}
         {[20, 40, 60, 80].map((left, i) => (
           <motion.div
@@ -288,17 +235,17 @@ const styles = {
     overflow: "hidden",
     color: "#1E3A8A",
     fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
-    padding: "40px 20px", // Reduced side padding
+    padding: "40px 20px",
     background: "linear-gradient(135deg, #FFD700 0%, #FFC107 50%, #FFB300 100%)",
     boxShadow: "inset 0 1px 0 rgba(255,255,255,0.3), 0 20px 40px rgba(255, 193, 7, 0.3)",
     border: "1px solid rgba(255, 255, 255, 0.2)",
-    margin: 0, // Removed margin
-    width: "100vw", // Full viewport width
-    left: "50%", // Center the element
-    right: "50%", // Center the element
-    marginLeft: "-50vw", // Offset to center
-    marginRight: "-50vw", // Offset to center
-    boxSizing: "border-box", // Include padding in width calculation
+    margin: 0,
+    width: "100vw",
+    left: "50%",
+    right: "50%",
+    marginLeft: "-50vw",
+    marginRight: "-50vw",
+    boxSizing: "border-box",
   },
 
   techBackground: {
@@ -309,24 +256,7 @@ const styles = {
     bottom: 0,
     overflow: "hidden",
     pointerEvents: "none",
-    width: "100%", // Ensure it fills the container
-  },
-
-  codeParticle: {
-    position: "absolute",
-    color: "#1E3A8A",
-    fontWeight: "bold",
-    fontFamily: "'Fira Code', monospace",
-    textShadow: "0 0 20px rgba(30, 58, 138, 0.8), 0 0 40px rgba(30, 58, 138, 0.4)",
-    zIndex: 1,
-  },
-
-  binaryDigit: {
-    position: "absolute",
-    color: "#1E40AF",
-    fontFamily: "'Fira Code', monospace",
-    fontWeight: "bold",
-    textShadow: "0 0 10px rgba(30, 64, 175, 0.6)",
+    width: "100%",
   },
 
   glowOrb: {
@@ -390,7 +320,7 @@ const styles = {
     WebkitBackgroundClip: "text",
     WebkitTextFillColor: "transparent",
     letterSpacing: "-0.02em",
-    textShadow: "0 4px 30px rgba(30, 58, 138, 0.5)", // Static text shadow
+    textShadow: "0 4px 30px rgba(30, 58, 138, 0.5)",
   },
 
   description: {

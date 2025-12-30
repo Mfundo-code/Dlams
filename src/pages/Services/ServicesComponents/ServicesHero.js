@@ -5,65 +5,11 @@ export default function ServicesHero() {
   const PRIMARY_BLUE = '#1E3A8A';
   const ACCENT_BLUE = '#3B82F6';
   const GOLD = '#FFD700';
-  const codeSymbols = ['</>', '{ }', '=>', '()', '[]', '/*', '==', '&&', '||', '++', 'fn', 'var'];
 
   return (
     <section style={styles.heroSection}>
       {/* Enhanced Animated Background */}
       <div style={styles.techBackground}>
-        {/* Large floating particles */}
-        {codeSymbols.map((symbol, index) => (
-          <motion.div
-            key={`code-${index}`}
-            style={{
-              ...styles.codeParticle,
-              left: `${(index * 8) + 2}%`,
-              fontSize: index % 2 === 0 ? '28px' : '22px',
-              color: index % 2 === 0 ? GOLD : ACCENT_BLUE,
-            }}
-            animate={{ 
-              y: [0, -80, 0],
-              opacity: [0, 1, 0.8, 1, 0],
-              scale: [0.5, 1.2, 1],
-              rotate: [0, 360]
-            }}
-            transition={{
-              duration: 6 + (index % 3),
-              repeat: Infinity,
-              delay: index * 0.5,
-              ease: "easeInOut"
-            }}
-          >
-            {symbol}
-          </motion.div>
-        ))}
-
-        {/* Binary digits falling */}
-        {Array.from({ length: 20 }).map((_, i) => (
-          <motion.div
-            key={`binary-${i}`}
-            style={{
-              ...styles.binaryDigit,
-              left: `${(i * 5) + Math.random() * 2}%`,
-              fontSize: Math.random() > 0.5 ? '18px' : '14px',
-              color: i % 2 === 0 ? GOLD : ACCENT_BLUE,
-            }}
-            animate={{
-              y: [-50, 400],
-              opacity: [0, 1, 0.8, 0],
-              rotate: [0, 180]
-            }}
-            transition={{
-              duration: 4 + Math.random() * 3,
-              repeat: Infinity,
-              delay: Math.random() * 3,
-              ease: "linear"
-            }}
-          >
-            {Math.random() > 0.5 ? '1' : '0'}
-          </motion.div>
-        ))}
-
         {/* Animated glowing orbs */}
         {[20, 40, 60, 80].map((left, i) => (
           <motion.div
@@ -287,19 +233,6 @@ const styles = {
     overflow: "hidden",
     pointerEvents: "none",
     width: "100%",
-  },
-  codeParticle: {
-    position: "absolute",
-    fontWeight: "bold",
-    fontFamily: "'Fira Code', monospace",
-    textShadow: "0 0 20px rgba(30, 58, 138, 0.8), 0 0 40px rgba(30, 58, 138, 0.4)",
-    zIndex: 1,
-  },
-  binaryDigit: {
-    position: "absolute",
-    fontFamily: "'Fira Code', monospace",
-    fontWeight: "bold",
-    textShadow: "0 0 10px rgba(30, 64, 175, 0.6)",
   },
   glowOrb: {
     position: "absolute",

@@ -21,18 +21,18 @@ const FloatingButtons = () => {
   };
 
   const openWhatsApp = () => {
-    const message = `🚀 *Website Inquiry - Software Services*
+    const message = `🚀 *Business Inquiry - Dlams Software Solutions*
 
 Hello! I visited your website and I'm interested in:
 
-🔹 Mobile Apps
-🔹 Commercial Solutions  
-🔹 Websites
-🔹 DNS management
-🔹 Professional Emails
-🔹 E-cormmerce Platforms
+🔹 Digital Presence Package
+🔹 E-commerce Solutions  
+🔹 Mobile Applications
+🔹 Custom Software Development
+🔹 Custom Web Development
+🔹 Business Automation
 
-*Chat started from: mfundodev.com*
+*Chat started from: dlamsoft.co.za*
 
 Please provide me with more information about your services and pricing. Thank you!`;
 
@@ -48,7 +48,7 @@ Please provide me with more information about your services and pricing. Thank y
         {/* Animated Arrow - Always visible and playing */}
         <div style={styles.arrowContainer}>
           <div style={styles.arrowBubble}>
-            <span style={styles.arrowText}>WhatsApp! 👇</span>
+            <span style={styles.arrowText}>WhatsApp!</span>
           </div>
           <div style={styles.arrowPointer}></div>
         </div>

@@ -11,143 +11,116 @@ export default function TechSkills() {
   const PRIMARY_BLUE = '#1E3A8A';
   const ACCENT_BLUE = '#3B82F6';
   const GOLD = '#FFD700';
-  const BRIGHT_GOLD = '#FFC107';
   const LIGHT_GOLD = '#FFECB3';
   const LIGHT_BLUE = '#E6F7FF';
   const DARK_BLUE = '#1E40AF';
 
-  // Use only PRIMARY_BLUE for all categories
   const CATEGORY_COLOR = PRIMARY_BLUE;
 
   const serviceCategories = {
     development: {
-      title: "Development Technologies",
+      title: "Development",
       icon: "🚀",
       color: CATEGORY_COLOR,
       skills: [
         {
           name: "Frontend Development",
-          description: "Building modern, scalable web applications with React, Vue, and Next.js",
-          solutions: ["Responsive Web Design", "Single Page Applications", "Interactive Dashboards", "Cross-Browser Compatibility"],
-          tools: ["React", "Vue.js", "Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"]
+          description: "Modern web applications with responsive design",
+          solutions: ["Web Design", "SPAs", "Dashboards"],
+          tools: ["React", "Vue.js", "Next.js"]
         },
         {
           name: "Backend Development",
-          description: "Robust server-side solutions, APIs, and database management",
-          solutions: ["RESTful APIs", "Authentication Systems", "Real-time Features", "Payment Integration"],
-          tools: ["Node.js", ".NET", "Django", "PostgreSQL", "MongoDB", "Redis"]
+          description: "Robust APIs and database solutions",
+          solutions: ["APIs", "Authentication", "Payment Integration"],
+          tools: ["Node.js", ".NET", "PostgreSQL"]
         },
         {
-          name: "Mobile Development",
-          description: "Cross-platform mobile applications for iOS and Android",
-          solutions: ["Native Performance", "Offline Capabilities", "Push Notifications", "App Store Deployment"],
-          tools: ["React Native", "Kotlin", "Swift", "Expo", "Mobile UI/UX"]
+          name: "Mobile Apps",
+          description: "Cross-platform iOS and Android applications",
+          solutions: ["Native Performance", "Push Notifications"],
+          tools: ["React Native", "Expo"]
         }
       ]
     },
     infrastructure: {
-      title: "Infrastructure & Cloud",
+      title: "Infrastructure",
       icon: "☁️",
       color: CATEGORY_COLOR,
       skills: [
         {
-          name: "Cloud Platforms",
-          description: "Scalable cloud solutions and infrastructure management",
-          solutions: ["Web Hosting", "Load Balancing", "Auto-scaling", "Disaster Recovery"],
-          tools: ["Azure", "AWS", "DigitalOcean", "Firebase", "Docker", "Kubernetes"]
+          name: "Cloud Hosting",
+          description: "Scalable cloud infrastructure",
+          solutions: ["Web Hosting", "Auto-scaling"],
+          tools: ["Azure", "AWS", "Docker"]
         },
         {
-          name: "DevOps & CI/CD",
-          description: "Automated deployment pipelines and infrastructure as code",
-          solutions: ["Continuous Integration", "Automated Testing", "Zero Downtime Deployment", "Monitoring"],
-          tools: ["GitHub Actions", "Jenkins", "Terraform", "Ansible", "Nginx"]
+          name: "DevOps",
+          description: "Automated deployment and monitoring",
+          solutions: ["CI/CD", "Monitoring"],
+          tools: ["GitHub Actions", "Jenkins"]
         },
         {
-          name: "Security & SSL",
-          description: "Complete security implementation and SSL management",
-          solutions: ["SSL Certificates", "DDoS Protection", "Security Audits", "Data Encryption"],
-          tools: ["Let's Encrypt", "Firewalls", "Security Headers", "TLS Encryption"]
+          name: "Security",
+          description: "SSL certificates and data protection",
+          solutions: ["SSL", "Encryption"],
+          tools: ["Let's Encrypt", "Firewalls"]
         }
       ]
     },
     solutions: {
-      title: "Business Solutions",
+      title: "Solutions",
       icon: "💼",
       color: CATEGORY_COLOR,
       skills: [
         {
-          name: "E-commerce Platforms",
-          description: "Complete online shopping solutions with payment integration",
-          solutions: ["Product Management", "Shopping Cart", "Checkout System", "Order Tracking"],
-          tools: ["Shopify", "WooCommerce", "Custom E-commerce", "Payment APIs"]
+          name: "E-commerce",
+          description: "Complete online shopping platforms",
+          solutions: ["Shopping Cart", "Payment Gateway"],
+          tools: ["Shopify", "WooCommerce"]
         },
         {
-          name: "Digital Presence Package",
-          description: "All-in-one digital solution including website, email, and branding",
-          solutions: ["Website Design", "Professional Email", "Logo Creation", "Business Cards"],
-          tools: ["Custom Websites", "Mail Servers", "Logo Design", "Business Templates"]
+          name: "Digital Presence",
+          description: "Complete branding package",
+          solutions: ["Website", "Logo", "Email"],
+          tools: ["Custom Design", "Mail Servers"]
         },
         {
-          name: "Custom Enterprise Software",
-          description: "Tailored software solutions for specific business needs",
-          solutions: ["Workflow Automation", "CRM Systems", "Inventory Management", "Reporting Tools"],
-          tools: ["Custom Development", "API Integration", "Database Design", "Cloud Hosting"]
-        }
-      ]
-    },
-    collaboration: {
-      title: "Collaboration Tools",
-      icon: "🤝",
-      color: CATEGORY_COLOR,
-      skills: [
-        {
-          name: "Project Management",
-          description: "Tools and methodologies for efficient project delivery",
-          solutions: ["Agile Development", "Client Communication", "Progress Tracking", "Timeline Management"],
-          tools: ["Jira", "Trello", "Asana", "Slack", "Microsoft Teams"]
-        },
-        {
-          name: "Version Control",
-          description: "Professional code management and collaboration",
-          solutions: ["Team Collaboration", "Code Reviews", "Deployment Pipelines", "Branch Management"],
-          tools: ["Git", "GitHub", "GitLab", "Bitbucket", "Code Reviews"]
-        },
-        {
-          name: "Design & Prototyping",
-          description: "UI/UX design and interactive prototyping",
-          solutions: ["Wireframing", "User Testing", "Design Systems", "Interactive Prototypes"],
-          tools: ["Figma", "Adobe XD", "Sketch", "Prototyping Tools"]
+          name: "Enterprise Software",
+          description: "Tailored business solutions",
+          solutions: ["Workflow Automation", "CRM"],
+          tools: ["Custom Development", "APIs"]
         }
       ]
     },
     support: {
-      title: "Support & Maintenance",
+      title: "Support",
       icon: "🛡️",
       color: CATEGORY_COLOR,
       skills: [
         {
-          name: "24/7 Support",
-          description: "Round-the-clock technical support and monitoring",
-          solutions: ["Technical Support", "Bug Fixing", "Performance Monitoring", "Emergency Response"],
-          tools: ["Ticketing Systems", "Live Chat", "Monitoring Tools", "Alert Systems"]
+          name: "Technical Support",
+          description: "Round-the-clock assistance",
+          solutions: ["Bug Fixing", "Monitoring"],
+          tools: ["Ticketing", "Live Chat"]
         },
         {
-          name: "Performance Optimization",
-          description: "Website and application performance tuning",
-          solutions: ["Speed Optimization", "Database Tuning", "Caching Strategies", "Image Optimization"],
-          tools: ["Performance Monitoring", "CDN", "Database Optimization", "Caching"]
+          name: "Optimization",
+          description: "Performance and speed tuning",
+          solutions: ["Speed", "Caching"],
+          tools: ["CDN", "Database Optimization"]
         },
         {
-          name: "Updates & Maintenance",
-          description: "Regular updates, security patches, and feature additions",
-          solutions: ["Security Updates", "Feature Enhancements", "Compatibility Maintenance", "Backup Systems"],
-          tools: ["Automated Updates", "Backup Systems", "Security Scanners", "Version Control"]
+          name: "Maintenance",
+          description: "Regular updates and security patches",
+          solutions: ["Updates", "Backups"],
+          tools: ["Automated Systems"]
         }
       ]
     }
   };
 
-  // Enhanced but same-size Neural Network Background Animation
+  // Enhanced Neural Network Background Animation
   useEffect(() => {
     const canvas = canvasRef.current;
     const container = containerRef.current;
@@ -225,9 +198,6 @@ export default function TechSkills() {
         this.node2 = node2;
         this.progress = Math.random() * Math.PI * 2;
         this.speed = 0.02 + Math.random() * 0.02;
-        this.length = Math.sqrt(
-          Math.pow(node2.x - node1.x, 2) + Math.pow(node2.y - node1.y, 2)
-        );
         this.hue = (node1.hue + node2.hue) / 2;
       }
 
@@ -309,36 +279,6 @@ export default function TechSkills() {
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      // Draw subtle circuit grid
-      ctx.strokeStyle = `rgba(${ACCENT_BLUE.replace('#', '').match(/.{2}/g).map(x => parseInt(x, 16)).join(', ')}, 0.05)`;
-      ctx.lineWidth = 0.4;
-      const gridSize = 50;
-
-      for (let x = 0; x < canvas.width; x += gridSize) {
-        ctx.beginPath();
-        ctx.moveTo(x, 0);
-        ctx.lineTo(x, canvas.height);
-        ctx.stroke();
-      }
-
-      for (let y = 0; y < canvas.height; y += gridSize) {
-        ctx.beginPath();
-        ctx.moveTo(0, y);
-        ctx.lineTo(canvas.width, y);
-        ctx.stroke();
-      }
-
-      // Draw binary rain effect
-      ctx.fillStyle = `rgba(${GOLD.replace('#', '').match(/.{2}/g).map(x => parseInt(x, 16)).join(', ')}, 0.1)`;
-      ctx.font = '12px "Fira Code", monospace';
-      const time = Date.now() * 0.001;
-      
-      for (let i = 0; i < 15; i++) {
-        const x = (Math.sin(time + i * 0.5) * 0.5 + 0.5) * canvas.width;
-        const y = (Date.now() * 0.001 + i * 8) % canvas.height;
-        ctx.fillText(Math.random() > 0.5 ? '1' : '0', x, y);
-      }
-
       connections.forEach(connection => {
         connection.update();
         connection.draw();
@@ -414,7 +354,7 @@ export default function TechSkills() {
 
   const styles = {
     section: {
-      padding: '80px 20px',
+      padding: '60px 15px',
       background: `linear-gradient(135deg, 
         rgba(255, 215, 0, 0.1) 0%, 
         ${LIGHT_BLUE} 25%,
@@ -426,11 +366,10 @@ export default function TechSkills() {
       overflow: 'hidden',
       fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
       borderRadius: '24px',
-      margin: '20px',
+      margin: '20px 10px',
       border: `2px solid ${GOLD}`,
-      boxShadow: `0 25px 50px rgba(30, 58, 138, 0.1),
-                  0 0 40px rgba(255, 215, 0, 0.15)`,
-      minHeight: '600px',
+      boxShadow: `0 25px 50px rgba(30, 58, 138, 0.1), 0 0 40px rgba(255, 215, 0, 0.15)`,
+      minHeight: '400px',
     },
     canvas: {
       position: 'absolute',
@@ -450,48 +389,49 @@ export default function TechSkills() {
     },
     header: {
       textAlign: "center",
-      marginBottom: "60px",
+      marginBottom: "40px",
     },
     title: {
-      fontSize: "clamp(2rem, 4vw, 3rem)",
+      fontSize: "clamp(1.5rem, 5vw, 2.5rem)",
       fontWeight: 800,
       background: `linear-gradient(135deg, ${PRIMARY_BLUE} 0%, ${ACCENT_BLUE} 45%, ${GOLD} 100%)`,
       backgroundClip: "text",
       WebkitBackgroundClip: "text",
       WebkitTextFillColor: "transparent",
-      margin: "0 0 20px 0",
-      textShadow: `0 4px 30px ${PRIMARY_BLUE}20,
-                   0 0 50px rgba(255, 215, 0, 0.2)`,
+      margin: "0 0 15px 0",
+      textShadow: `0 4px 30px ${PRIMARY_BLUE}20, 0 0 50px rgba(255, 215, 0, 0.2)`,
       letterSpacing: '-0.3px',
       position: 'relative',
+      padding: '0 10px',
     },
     subtitle: {
-      fontSize: "1.1rem",
+      fontSize: "clamp(0.9rem, 2vw, 1.05rem)",
       color: DARK_BLUE,
       maxWidth: 600,
       margin: "0 auto",
       lineHeight: 1.6,
       background: "rgba(255, 255, 255, 0.85)",
       backdropFilter: "blur(12px)",
-      padding: "20px",
+      padding: "15px",
       borderRadius: "16px",
       border: `1px solid ${GOLD}`,
       fontWeight: 600,
-      boxShadow: `0 10px 30px ${PRIMARY_BLUE}10,
-                  inset 0 1px 0 rgba(255, 255, 255, 0.8)`,
+      boxShadow: `0 10px 30px ${PRIMARY_BLUE}10, inset 0 1px 0 rgba(255, 255, 255, 0.8)`,
     },
     categories: {
       display: "flex",
       justifyContent: "center",
       flexWrap: "wrap",
-      gap: "12px",
-      marginBottom: "40px",
+      gap: "10px",
+      marginBottom: "30px",
+      padding: '0 10px',
     },
     categoryButton: (isActive) => ({
       display: "flex",
       alignItems: "center",
-      gap: "10px",
-      padding: "14px 24px",
+      justifyContent: "center",
+      gap: "8px",
+      padding: "12px 20px",
       borderRadius: "50px",
       border: "none",
       background: isActive 
@@ -501,109 +441,111 @@ export default function TechSkills() {
       cursor: "pointer",
       transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
       fontWeight: 700,
-      fontSize: "0.95rem",
+      fontSize: "clamp(0.85rem, 2vw, 0.95rem)",
       backdropFilter: "blur(10px)",
       border: `1px solid ${isActive ? CATEGORY_COLOR : GOLD}`,
       transform: isActive ? "scale(1.05)" : "scale(1)",
       boxShadow: isActive 
-        ? `0 8px 25px ${CATEGORY_COLOR}40, 
-           0 0 0 1px ${CATEGORY_COLOR}20,
-           0 0 15px rgba(59, 130, 246, 0.3)` 
+        ? `0 8px 25px ${CATEGORY_COLOR}40, 0 0 0 1px ${CATEGORY_COLOR}20, 0 0 15px rgba(59, 130, 246, 0.3)` 
         : `0 4px 15px ${PRIMARY_BLUE}08`,
       position: 'relative',
       overflow: 'hidden',
+      minWidth: 'fit-content',
     }),
     skillsGrid: {
       display: "grid",
-      gridTemplateColumns: "repeat(auto-fit, minmax(350px, 1fr))",
-      gap: "30px",
+      gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 300px), 1fr))",
+      gap: "20px",
+      padding: '0 10px',
     },
     skillCard: {
       background: "rgba(255, 255, 255, 0.92)",
       backdropFilter: "blur(15px)",
       border: `1px solid ${GOLD}`,
       borderRadius: "20px",
-      padding: "32px",
+      padding: "24px",
       transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
       position: "relative",
       overflow: "hidden",
-      boxShadow: `0 10px 30px ${PRIMARY_BLUE}05,
-                  0 0 0 1px rgba(255, 255, 255, 0.8),
-                  inset 0 1px 0 rgba(255, 255, 255, 0.6)`,
+      boxShadow: `0 10px 30px ${PRIMARY_BLUE}05, 0 0 0 1px rgba(255, 255, 255, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.6)`,
       zIndex: 2,
+      textAlign: 'center',
     },
     skillHeader: {
       display: "flex",
-      justifyContent: "space-between",
-      alignItems: "flex-start",
-      marginBottom: "20px",
+      justifyContent: "center",
+      alignItems: "center",
+      marginBottom: "15px",
       position: "relative",
     },
     skillName: {
-      fontSize: "1.4rem",
+      fontSize: "clamp(1.1rem, 3vw, 1.3rem)",
       fontWeight: 800,
       margin: "0 0 10px 0",
       background: `linear-gradient(90deg, ${CATEGORY_COLOR}, ${ACCENT_BLUE})`,
       WebkitBackgroundClip: "text",
       WebkitTextFillColor: "transparent",
       textShadow: `0 2px 15px ${CATEGORY_COLOR}20`,
+      textAlign: 'center',
     },
     skillDescription: {
       color: DARK_BLUE,
-      fontSize: "1rem",
+      fontSize: "clamp(0.9rem, 2vw, 1rem)",
       lineHeight: 1.6,
-      marginBottom: "24px",
+      marginBottom: "20px",
       fontWeight: 500,
-      padding: "15px",
+      padding: "12px",
       background: `linear-gradient(135deg, ${LIGHT_GOLD}08, ${LIGHT_BLUE}08)`,
       borderRadius: "12px",
       borderLeft: `3px solid ${GOLD}`,
+      textAlign: 'center',
     },
     projectsSection: {
-      marginTop: "20px",
+      marginTop: "15px",
     },
     sectionTitle: {
-      fontSize: "0.95rem",
+      fontSize: "clamp(0.85rem, 2vw, 0.95rem)",
       fontWeight: 700,
       color: PRIMARY_BLUE,
-      margin: "0 0 15px 0",
+      margin: "0 0 12px 0",
       textTransform: "uppercase",
       letterSpacing: "1px",
       display: "flex",
       alignItems: "center",
-      gap: "10px",
-      padding: "8px 0",
+      justifyContent: "center",
+      gap: "8px",
+      padding: "6px 0",
       borderBottom: `1px solid ${GOLD}40`,
     },
     tags: {
       display: "flex",
       flexWrap: "wrap",
-      gap: "10px",
+      gap: "8px",
+      justifyContent: "center",
     },
     tag: {
-      padding: "8px 16px",
+      padding: "6px 14px",
       background: `linear-gradient(135deg, ${CATEGORY_COLOR}15, ${CATEGORY_COLOR}05)`,
       border: `1px solid ${CATEGORY_COLOR}30`,
       borderRadius: "20px",
-      fontSize: "0.85rem",
+      fontSize: "clamp(0.8rem, 2vw, 0.85rem)",
       color: CATEGORY_COLOR,
       fontWeight: 600,
       transition: "all 0.3s ease",
       boxShadow: `0 4px 12px ${CATEGORY_COLOR}15`,
       backdropFilter: "blur(4px)",
+      textAlign: 'center',
     },
   };
 
   return (
     <section ref={containerRef} style={styles.section} aria-labelledby="skills-heading">
-      {/* Enhanced Neural Network Background */}
       <canvas 
         ref={canvasRef} 
         style={styles.canvas}
         aria-hidden="true"
       />
 
-      {/* Subtle decorative elements - same size */}
       <motion.div 
         style={{
           position: 'absolute',
@@ -668,7 +610,7 @@ export default function TechSkills() {
             transition={{ duration: 0.6, delay: 0.1 }}
             viewport={{ once: true }}
           >
-            Our Technology Stack & Services
+            Our Services & Solutions
           </motion.h2>
           <motion.p 
             style={styles.subtitle}
@@ -677,8 +619,7 @@ export default function TechSkills() {
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            Comprehensive digital solutions powered by cutting-edge technologies and 
-            backed by Dlams Software Solutions expertise
+            Professional digital solutions tailored to your business needs
           </motion.p>
         </motion.div>
 
@@ -697,25 +638,12 @@ export default function TechSkills() {
               whileHover={{ 
                 scale: 1.08, 
                 y: -2,
-                boxShadow: `0 10px 30px ${CATEGORY_COLOR}30, 
-                            0 0 0 1px ${CATEGORY_COLOR}40`
+                boxShadow: `0 10px 30px ${CATEGORY_COLOR}30, 0 0 0 1px ${CATEGORY_COLOR}40`
               }}
               whileTap={{ scale: 0.98 }}
-              animate={activeCategory === key ? {
-                scale: [1.05, 1.08, 1.05],
-              } : {}}
-              transition={activeCategory === key ? {
-                duration: 2,
-                repeat: Infinity,
-                repeatType: "reverse"
-              } : {}}
             >
               <motion.span 
-                style={{ fontSize: '1.2rem' }}
-                animate={activeCategory === key ? {
-                  rotate: [0, 5, -5, 0],
-                } : {}}
-                transition={{ duration: 0.8 }}
+                style={{ fontSize: 'clamp(1rem, 3vw, 1.2rem)' }}
               >
                 {category.icon}
               </motion.span>
@@ -739,13 +667,10 @@ export default function TechSkills() {
               variants={itemVariants}
               whileHover={{ 
                 y: -6,
-                boxShadow: `0 15px 35px ${PRIMARY_BLUE}15,
-                            0 0 0 1px ${CATEGORY_COLOR}40,
-                            inset 0 1px 0 rgba(255, 255, 255, 0.8)`,
+                boxShadow: `0 15px 35px ${PRIMARY_BLUE}15, 0 0 0 1px ${CATEGORY_COLOR}40, inset 0 1px 0 rgba(255, 255, 255, 0.8)`,
               }}
               custom={index}
             >
-              {/* Card Glow Effect */}
               <motion.div 
                 style={{
                   position: 'absolute',
@@ -780,19 +705,8 @@ export default function TechSkills() {
 
               <div style={styles.projectsSection}>
                 <h4 style={styles.sectionTitle}>
-                  <motion.span
-                    animate={{
-                      scale: [1, 1.1, 1],
-                    }}
-                    transition={{
-                      duration: 3,
-                      repeat: Infinity,
-                      delay: 0.3
-                    }}
-                  >
-                    🎯
-                  </motion.span>
-                  Key Solutions
+                  <span>🎯</span>
+                  Key Features
                 </h4>
                 <div style={styles.tags}>
                   {skill.solutions.map(solution => (
@@ -802,8 +716,6 @@ export default function TechSkills() {
                       whileHover={{ 
                         scale: 1.05, 
                         y: -2,
-                        background: `linear-gradient(135deg, ${CATEGORY_COLOR}25, ${ACCENT_BLUE}15)`,
-                        boxShadow: `0 6px 18px ${CATEGORY_COLOR}30`
                       }}
                       whileTap={{ scale: 0.95 }}
                     >
@@ -815,19 +727,8 @@ export default function TechSkills() {
 
               <div style={styles.projectsSection}>
                 <h4 style={styles.sectionTitle}>
-                  <motion.span
-                    animate={{
-                      rotate: [0, 360],
-                    }}
-                    transition={{
-                      duration: 20,
-                      repeat: Infinity,
-                      ease: "linear"
-                    }}
-                  >
-                    🛠️
-                  </motion.span>
-                  Technology Stack
+                  <span>🛠️</span>
+                  Technology
                 </h4>
                 <div style={styles.tags}>
                   {skill.tools.map(tool => (
@@ -837,8 +738,6 @@ export default function TechSkills() {
                       whileHover={{ 
                         scale: 1.05, 
                         y: -2,
-                        background: `linear-gradient(135deg, ${CATEGORY_COLOR}25, ${ACCENT_BLUE}15)`,
-                        boxShadow: `0 6px 18px ${CATEGORY_COLOR}30`
                       }}
                       whileTap={{ scale: 0.95 }}
                     >

@@ -6,68 +6,15 @@ export default function HeroSection({
   title = "Dlams Software Solutions",
   subtitle = "Digital Presence | Logo Design | Websites | Mobile Apps | E-commerce | Custom Enterprise Software",
   primaryLabel = "Get In Touch Now",
-  onPrimary = () => window.location.href = "/contact", // CHANGED: Now redirects to contact page
+  onPrimary = () => window.location.href = "/contact",
 }) {
   const [primaryHover, setPrimaryHover] = useState(false);
   const [imageLoaded, setImageLoaded] = useState(false);
 
-  const codeSymbols = ['</>', '{ }', '=>', '()', '[]', '/*', '==', '&&', '||', '++', 'fn', 'var'];
-
   return (
     <section style={styles.section} aria-labelledby="hero-heading">
-      {/* VERY VISIBLE Tech Background */}
+      {/* Tech Background */}
       <div style={styles.techBackground}>
-        {/* Large floating particles with BRIGHT colors */}
-        {codeSymbols.map((symbol, index) => (
-          <motion.div
-            key={`code-${index}`}
-            style={{
-              ...styles.codeParticle,
-              left: `${(index * 8) + 2}%`,
-              fontSize: index % 2 === 0 ? '28px' : '22px',
-            }}
-            animate={{ 
-              y: [0, -120, 0],
-              opacity: [0, 1, 0.8, 1, 0],
-              scale: [0.5, 1.2, 1],
-              rotate: [0, 360]
-            }}
-            transition={{
-              duration: 6 + (index % 3),
-              repeat: Infinity,
-              delay: index * 0.5,
-              ease: "easeInOut"
-            }}
-          >
-            {symbol}
-          </motion.div>
-        ))}
-
-        {/* Large Binary digits falling */}
-        {Array.from({ length: 25 }).map((_, i) => (
-          <motion.div
-            key={`binary-${i}`}
-            style={{
-              ...styles.binaryDigit,
-              left: `${(i * 4) + Math.random() * 2}%`,
-              fontSize: Math.random() > 0.5 ? '18px' : '14px',
-            }}
-            animate={{
-              y: [-50, 600],
-              opacity: [0, 1, 0.8, 0],
-              rotate: [0, 180]
-            }}
-            transition={{
-              duration: 5 + Math.random() * 3,
-              repeat: Infinity,
-              delay: Math.random() * 3,
-              ease: "linear"
-            }}
-          >
-            {Math.random() > 0.5 ? '1' : '0'}
-          </motion.div>
-        ))}
-
         {/* Animated glowing orbs */}
         {[20, 40, 60, 80].map((left, i) => (
           <motion.div
@@ -241,7 +188,6 @@ export default function HeroSection({
                 repeat: Infinity
               }}
             >
-              {/* ADDED: Arrow icon with animation like AboutCompany */}
               <span style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                 {primaryLabel}
                 <motion.svg 
@@ -325,12 +271,12 @@ const styles = {
     overflow: "hidden",
     color: "#1E3A8A",
     fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
-    borderRadius: "0", // Removed rounded corners
+    borderRadius: "0",
     padding: "64px 32px",
     background: "linear-gradient(135deg, #FFD700 0%, #FFC107 50%, #FFB300 100%)",
     boxShadow: "inset 0 1px 0 rgba(255,255,255,0.3), 0 20px 40px rgba(255, 193, 7, 0.3)",
     border: "1px solid rgba(255, 255, 255, 0.2)",
-    margin: 0, // Ensure no margin
+    margin: 0,
   },
 
   techBackground: {
@@ -341,23 +287,6 @@ const styles = {
     bottom: 0,
     overflow: "hidden",
     pointerEvents: "none",
-  },
-
-  codeParticle: {
-    position: "absolute",
-    color: "#1E3A8A",
-    fontWeight: "bold",
-    fontFamily: "'Fira Code', monospace",
-    textShadow: "0 0 20px rgba(30, 58, 138, 0.8), 0 0 40px rgba(30, 58, 138, 0.4)",
-    zIndex: 1,
-  },
-
-  binaryDigit: {
-    position: "absolute",
-    color: "#1E40AF",
-    fontFamily: "'Fira Code', monospace",
-    fontWeight: "bold",
-    textShadow: "0 0 10px rgba(30, 64, 175, 0.6)",
   },
 
   glowOrb: {
@@ -407,8 +336,8 @@ const styles = {
     minWidth: 300,
     display: "flex",
     flexDirection: "column",
-    alignItems: "center", // Changed back to center
-    textAlign: "center", // Changed back to center
+    alignItems: "center",
+    textAlign: "center",
     justifyContent: "center",
   },
 
@@ -416,7 +345,7 @@ const styles = {
     flex: "0 1 380px",
     display: "flex",
     justifyContent: "center",
-    alignItems: "center", // Ensure image is centered vertically too
+    alignItems: "center",
     minWidth: 280,
   },
 
@@ -478,7 +407,7 @@ const styles = {
     gap: 16,
     alignItems: "center",
     flexWrap: "wrap",
-    justifyContent: "center", // Changed back to center
+    justifyContent: "center",
   },
 
   primaryBtn: (hover) => ({

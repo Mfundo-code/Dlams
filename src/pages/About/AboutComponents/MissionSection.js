@@ -59,8 +59,6 @@ const MissionSection = () => {
     }
   };
 
-  const codeSymbols = ['</>', '{ }', '=>', '()', '[]', '/*', '==', '&&', '||', '++', 'fn', 'var'];
-
   const styles = {
     section: {
       padding: '100px 20px',
@@ -511,65 +509,6 @@ const MissionSection = () => {
             pointerEvents: "none",
             zIndex: 0,
           }}>
-            {/* Code Symbols */}
-            {codeSymbols.slice(0, 8).map((symbol, index) => (
-              <motion.div
-                key={`code-${index}`}
-                style={{
-                  position: "absolute",
-                  left: `${(index * 12) + 2}%`,
-                  top: '20%',
-                  color: PRIMARY_BLUE,
-                  fontWeight: "bold",
-                  fontFamily: "'Fira Code', monospace",
-                  fontSize: '18px',
-                  textShadow: "0 0 15px rgba(30, 58, 138, 0.6)",
-                }}
-                animate={{ 
-                  y: [0, -50, 0],
-                  opacity: [0, 1, 0.8, 0],
-                  rotate: [0, 180]
-                }}
-                transition={{
-                  duration: 5 + (index % 3),
-                  repeat: Infinity,
-                  delay: index * 0.3,
-                  ease: "easeInOut"
-                }}
-              >
-                {symbol}
-              </motion.div>
-            ))}
-
-            {/* Binary digits falling */}
-            {Array.from({ length: 12 }).map((_, i) => (
-              <motion.div
-                key={`binary-${i}`}
-                style={{
-                  position: "absolute",
-                  left: `${(i * 8) + Math.random() * 2}%`,
-                  color: "#1E40AF",
-                  fontFamily: "'Fira Code', monospace",
-                  fontWeight: "bold",
-                  fontSize: Math.random() > 0.5 ? '14px' : '12px',
-                  textShadow: "0 0 8px rgba(30, 64, 175, 0.5)",
-                }}
-                animate={{
-                  y: [-20, 150],
-                  opacity: [0, 1, 0.8, 0],
-                  rotate: [0, 90]
-                }}
-                transition={{
-                  duration: 2 + Math.random() * 2,
-                  repeat: Infinity,
-                  delay: Math.random() * 2,
-                  ease: "linear"
-                }}
-              >
-                {Math.random() > 0.5 ? '1' : '0'}
-              </motion.div>
-            ))}
-
             {/* Glowing orbs */}
             {[15, 40, 65, 90].map((left, i) => (
               <motion.div

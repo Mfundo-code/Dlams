@@ -42,7 +42,6 @@ const Services = () => {
         selectedServiceSlug={serviceSlug} 
         onServiceSelect={handleServiceSelect}
       />
-      <ServicesCTA />
     </main>
   );
 };
