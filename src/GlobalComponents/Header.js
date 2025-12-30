@@ -54,9 +54,9 @@ const Header = () => {
       top: 0,
       zIndex: 100,
       height: "70px",
-      // Removed all visual separators
+      // Removed all visual separators except thin yellow line
       boxShadow: "none", // No shadow
-      borderBottom: "none", // No border
+      borderBottom: "2px solid #FFD700", // Thin yellow line
       fontFamily: "'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif",
     },
     logoContainer: {
